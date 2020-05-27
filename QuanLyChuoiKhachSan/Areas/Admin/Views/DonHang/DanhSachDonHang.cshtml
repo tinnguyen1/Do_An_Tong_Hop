@@ -1,0 +1,67 @@
+﻿@model PagedList.IPagedList<Model.EF.DonHang>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "DanhSachDonHang";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    Danh Sách đơn hàng
+}
+
+<p>
+    @Html.ActionLink("Create New", "ThemMoi")
+</p>
+
+@using (Html.BeginForm("DanhSachDonHang", "DonHang", FormMethod.Get))
+{
+    <div class="row form-group">
+        <div class="col-lg-12">
+            <div class="col-md-4">
+                <input type="text" value="@ViewBag.SearchString" class="form-control" placeholder="Mời nhập tên cần tìm" name="searchString" />
+                <button type="submit" class="btn btn-success">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            Tên Khách hàng
+        </th>
+        <th>
+            Tên Đơn Hàng
+        </th>
+        <th>
+            Ngày Giao
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr id="row_@item.MaDonHang">
+            <td>
+                @Html.DisplayFor(modelItem => item.KhachSan.TenKhachSan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDonHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayGiao)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaDonHang }) |
+                @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaDonHang }, new AjaxOptions
+               {
+                   Confirm = "Bạn có muốn xóa thông tin này này không.",
+                   OnComplete = "$('#row_" + @item.MaDonHang + "').remove()",
+                   HttpMethod = "Delete"
+               })
+            </td>
+        </tr>
+    }
+
+</table>
+<label>
+    Trang số: @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+</label>

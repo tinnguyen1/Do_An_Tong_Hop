@@ -1,0 +1,68 @@
+﻿@model Model.EF.QuanLyKhoHang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    thong tin chi tiet
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaKho)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.KhoHang.KhachSan.TenKhachSan)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DanhSachNguoiDung.TenNguoiDung)
+                </th>
+
+                <td>
+                    @Html.DisplayFor(model => model.DanhSachNguoiDung.TenNguoiDung)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.KhoHang.DiaChi)
+                </th>
+
+                <td>
+                    @Html.DisplayFor(model => model.KhoHang.DiaChi)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NgayPhan)
+                </th>
+
+                <td>
+                    @Html.DisplayFor(model => model.NgayPhan)
+                </td>
+            </tr>
+        </table>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaNguoiDung }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<style>
+    .table td, .table th {
+        border-top: hidden;
+    }
+    .table tr th {
+        text-align: right;
+        padding-right: 10px;
+    }
+    .table tr td {
+        text-align: left;
+        padding-left: 10px;
+    }
+</style>

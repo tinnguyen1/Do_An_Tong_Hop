@@ -1,0 +1,81 @@
+﻿@model Model.EF.KhuyenMai
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Thông tin chi tiết
+}
+
+<div>
+    <dl class="dl-horizontal">
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TenKhuyenMai)
+                </th>
+
+                <td>
+                    @Html.DisplayFor(model => model.TenKhuyenMai)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MoTa)
+                </th>
+
+                <td>
+                    @Html.Raw(Model.MoTa)
+                </td>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NgayTao)
+                </th>
+
+                <td>
+                    @Html.DisplayFor(model => model.NgayTao)
+                </td>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.NgayBD)
+                </th>
+
+                <td>
+                    @Html.DisplayFor(model => model.NgayBD)
+                </td>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.NgayKT)
+                </th>
+
+                <td>
+                    @Html.DisplayFor(model => model.NgayKT)
+                </td>
+                <th>
+                    Người tạo
+                </th>
+
+                <td>
+                    @Html.DisplayFor(model => model.DanhSachNguoiDung.TenNguoiDung)
+                </td>
+            </tr>
+        </table>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaKhuyenMai }) |
+    @Html.ActionLink("Back to List", "DanhSachKhuyenMai")
+</p>
+
+<style>
+    .table td, .table th {
+        border-top: hidden;
+    }
+</style>

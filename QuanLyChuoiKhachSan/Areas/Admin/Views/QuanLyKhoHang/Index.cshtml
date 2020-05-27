@@ -1,0 +1,65 @@
+﻿@model PagedList.IPagedList<Model.EF.QuanLyKhoHang>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    nguoi quan ly kho hang
+}
+
+<p>
+    @Html.ActionLink("Thêm Mới", "ThemMoi")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Kho hàng
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Mã người quản lý
+        </th>
+        <th>
+            Người quản lý
+        </th>
+        <th>
+            Ngày phân
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr id="row_@item.STT">
+            <td>
+                @Html.DisplayFor(modelItem => item.KhoHang.KhachSan.TenKhachSan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhoHang.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaNguoiDung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DanhSachNguoiDung.TenNguoiDung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayPhan)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "CapNhat", new { id = item.STT }) |
+                @Html.ActionLink("Details", "Details", new { id = item.STT }) |
+                @Ajax.ActionLink("Xóa", "Delete", new { @id = item.STT }, new AjaxOptions
+               {
+                   Confirm = "Bạn có muốn xóa thông tin này này không.",
+                   OnComplete = "$('#row_" + @item.STT + "').remove()",
+                   HttpMethod = "Delete"
+               })
+            </td>
+        </tr>
+    }
+
+</table>

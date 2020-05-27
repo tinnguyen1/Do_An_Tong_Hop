@@ -1,0 +1,48 @@
+﻿@model Model.EF.DanhSachNguoiDung
+
+@{
+    ViewBag.Title = "DoiMk";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Đổi mật khẩu
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <table class="table">
+            <tr>
+                <th>
+                    Mật khẩu cũ:
+                </th>
+                <td>
+                    <input type="text" name="mkCu" id="mkCu" placeholder="Mời nhập nội dung" />
+                </td>
+                <th>
+                    Mật khẩu mới:
+                </th>
+                <td>
+                    <input type="text" name="MatKhau" id="MatKhau" placeholder="Mời nhập nội dung" />
+                </td>
+            </tr>
+        </table>
+
+
+        <div class="form-group" style="text-align:center">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đổi mật khẩu" class="btn btn-default alert-danger" />
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .table tr th{
+        text-align:right;
+        padding-right:0px;
+    }
+</style>

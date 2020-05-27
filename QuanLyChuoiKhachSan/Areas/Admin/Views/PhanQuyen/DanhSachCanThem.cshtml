@@ -1,0 +1,56 @@
+﻿@model PagedList.IPagedList<Model.EF.DanhSachNguoiDung>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "DanhSachCanThem";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Danh sách người chưa phân quyền
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Mã người dùng
+        </th>
+        <th>
+            Tên người dùng
+        </th>
+        <th>
+            Ngày sinh
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr id="row_@item.MaNguoiDung">
+            <td>
+                <a href="@Url.Action("ThongTin","PhanQuyen",new { id= item.MaNguoiDung} )">
+                    @Html.DisplayFor(modelItem => item.MaNguoiDung)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNguoiDung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.ActionLink("Cấp Quyền", "CapQuyen", new { id = item.MaNguoiDung }) |
+                @Html.ActionLink("Thông Tin", "ThongTin", new { id = item.MaNguoiDung })
+            </td>
+        </tr>
+    }
+
+</table>
+<label>
+    Trang số: @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+</label>

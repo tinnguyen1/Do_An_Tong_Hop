@@ -1,0 +1,80 @@
+﻿@model Model.EF.KhachSan
+
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Thông tin chi tiết
+}
+
+<div>
+    <dl class="form-horizontal">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Anh)
+                </th>
+                <td>
+                    <img alt="Model.TenKhachSan" src="@Url.Content(Model.Anh)" width="200" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TenKhachSan)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.TenKhachSan)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DiaChi)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.DiaChi)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Email)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SDT)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.SDT)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.GhiChu)
+                </th>
+                <td>
+                    @Html.Raw(Model.GhiChu)
+                </td>
+            </tr>
+
+        </table>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaKhachSan }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<style>
+    .table td, .table th {
+        border-top: hidden;
+    }
+
+    .table tr th {
+        text-align: right;
+        padding-right: 0px;
+    }
+</style>

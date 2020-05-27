@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Model.EF.ChiTietHangHoa>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Thông tin mặt hàng
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Kho hàng
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Tên Hàng
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Đơn Giá
+        </th>
+        <th>
+            Tổng Giá (VND)
+        </th>
+        @*<th></th>*@
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhoHang.KhachSan.TenKhachSan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhoHang.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HangHoa.TenHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+            <td>
+                @(item.Soluong * item.DonGia)
+            </td>
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>*@
+        </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

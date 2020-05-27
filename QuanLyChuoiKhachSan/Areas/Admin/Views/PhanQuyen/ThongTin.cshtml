@@ -1,0 +1,60 @@
+﻿@model Model.EF.DanhSachNguoiDung
+
+@{
+    ViewBag.Title = "ThongTin";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Thông tin chi tiết
+}
+
+<div>
+    <div class="form-horizontal">
+
+    </div>
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.MaNguoiDung)</th>
+            <td>@Html.DisplayFor(model => model.MaNguoiDung)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.TenNguoiDung)</th>
+            <td>@Html.DisplayFor(model => model.TenNguoiDung)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.DiaChi)</th>
+            <td>@Html.DisplayFor(model => model.DiaChi)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.SDT)</th>
+            <td>@Html.DisplayFor(model => model.SDT)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.NgaySinh)</th>
+            <td>@Html.DisplayFor(model => model.NgaySinh)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <td>@Html.DisplayFor(model => model.Email)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.GioiTinh)</th>
+            <td>@Html.DisplayFor(model => model.GioiTinh)</td>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Cấp Quyền", "CapQuyen", new { id = Model.MaNguoiDung }) |
+    @Html.ActionLink("Back to List", "DanhSachCanThem")
+</p>
+<style>
+    .table td, .table th {
+        border-top: hidden;
+    }
+
+    .table tr th {
+        text-align: center;
+        padding-right: 0px;
+    }
+</style>

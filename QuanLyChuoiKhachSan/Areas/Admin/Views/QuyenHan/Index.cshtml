@@ -1,0 +1,58 @@
+﻿@model PagedList.IPagedList<Model.EF.QuyenHan>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Trang quyền hạn";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    Danh Sách quyền hạn người dùng
+}
+
+<p>
+    @Html.ActionLink("Thêm Mới", "ThemMoi")
+</p>
+@using (Html.BeginForm("Index", "QuyenHan", FormMethod.Get))
+{
+    <div class="row form-group">
+        <div class="col-lg-12">
+            <div class="col-md-4">
+                <input type="text" value="@ViewBag.SearchString" class="form-control" placeholder="Mời nhập tên cần tìm" name="searchString" />
+                <button type="submit" class="btn btn-success">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            Tên quyền hạn
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr id="row_@item.MaQuyenHan">
+            <td></td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenQuyenHan)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaQuyenHan }) |
+
+                @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaQuyenHan }, new AjaxOptions
+               {
+                   Confirm = "Bạn có muốn xóa quyền hạn này không.",
+                   OnComplete = "$('#row_" + @item.MaQuyenHan + "').remove()",
+                   HttpMethod = "Delete"
+               })
+            </td>
+        </tr>
+    }
+</table>
+
+<label>
+    Trang số: @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+</label>

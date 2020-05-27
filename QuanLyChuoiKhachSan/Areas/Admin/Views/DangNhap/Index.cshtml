@@ -1,0 +1,88 @@
+﻿@model QuanLyChuoiKhachSan.Areas.Admin.Models.DangNhapModel
+
+@{
+    ViewBag.Title = "Trang đăng nhập";
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>@ViewBag.Title</title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Clear login Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta-Tags -->
+    <!-- Stylesheets -->
+    <link href="~/Assets/DangNhap/Admin/css/font-awesome.css" rel="stylesheet">
+    <link href="~/Assets/DangNhap/Admin/css/style.css" rel='stylesheet' type='text/css' />
+
+
+</head>
+
+<body>
+    <h1> Đăng nhập </h1>
+    <div class="w3ls-login box box--big">
+        <!-- form starts here -->
+        @using (Html.BeginForm("DangNhap", "DangNhap", FormMethod.Post))
+        {
+            <div style="color:red;margin:auto">
+                @Html.ValidationSummary(false, "", "error")
+            </div>
+
+            <div class="agile-field-txt">
+                <label>
+                    <i class="fa fa-user" aria-hidden="true"></i> Mã Đăng Nhập
+                </label>
+                @Html.TextBoxFor(model => model.MaNguoiDung, new { @class = "form-control", @autofocus = "autofocus" });
+            </div>
+            <div class="agile-field-txt">
+                <label>
+                    <i class="fa fa-envelope" aria-hidden="true"></i> Mật khẩu
+                </label>
+                @Html.PasswordFor(model => model.MatKhau, new { @class = "form-control" });
+                <div class="agile_label">
+                    <input id="check3" name="check3" type="checkbox" value="show password" onclick="myFunction()">
+                    <label class="check" for="check3">hiện mật khẩu</label>
+                </div>
+            </div>
+            <!-- hiện mật khẩu -->
+            <script>
+                function myFunction() {
+                    var x = document.getElementById("Matkhau");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                }
+            </script>
+            <!-- //script ends here -->
+            <div class="w3ls-bot">
+                <div class="form-end">
+                    <input type="submit" value="Đăng nhập">
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div style="margin:20px auto;">
+                <a href="#" style="color:white">Quên mật khẩu</a>
+            </div>
+        }
+
+
+    </div>
+    <!-- //form ends here -->
+</body>
+
+</html>

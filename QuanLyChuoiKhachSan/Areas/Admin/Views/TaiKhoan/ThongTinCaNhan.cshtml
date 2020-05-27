@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Model.EF.DanhSachNguoiDung>
+
+@{
+    ViewBag.Title = "ThongTinCaNhan";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Thông tin cá nhân
+}
+
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>
+                Ảnh:
+            </th>
+            <td>
+                <img src="@Url.Content(item.Anh)" style="width:50px;height:50px" />
+            </td>
+            <th>
+                Mã người dùng:
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaNguoiDung)
+            </td>
+            <th>
+                Tên người dùng:
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNguoiDung)
+            </td>
+            <th>
+                Địa chỉ:
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <th></th>
+        </tr>
+
+        <tr>
+            <th>
+                Số điện thoại:
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <th>
+                Ngày sinh:
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <th>
+                Giới tính:
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <th>
+                Email:
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                @Html.ActionLink("Cập nhật", "Edit", new { id = item.MaNguoiDung })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<style>
+    .table td, .table th{
+        border-top:hidden;
+    }
+    .table tr th{
+        text-align:right;
+        padding-right:0px;
+    }
+</style>

@@ -1,0 +1,86 @@
+﻿@model Model.EF.ChiTiet_QuyenHan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    thông tin chi tiết
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <table class="table">
+            <tr>
+                <th>
+                   
+                </th>
+                <td>
+                    <img alt="Model.TenKhachSan" src="@Url.Content(Model.DanhSachNguoiDung.Anh)" width="200" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DanhSachNguoiDung.TenNguoiDung)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.DanhSachNguoiDung.TenNguoiDung)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DanhSachNguoiDung.DiaChi)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.DanhSachNguoiDung.DiaChi)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DanhSachNguoiDung.NgaySinh)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.DanhSachNguoiDung.NgaySinh)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DanhSachNguoiDung.SDT)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.DanhSachNguoiDung.SDT)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuyenHan.TenQuyenHan)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.QuyenHan.TenQuyenHan)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NgayPhan)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.NgayPhan)
+                </td>
+            </tr>
+        </table>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaNguoiDung }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<style>
+    /*.table td, .table th {
+        border-top: hidden;
+    }*/
+    .table tr th {
+        text-align: center;
+        padding-right: 0px;
+    }
+</style>

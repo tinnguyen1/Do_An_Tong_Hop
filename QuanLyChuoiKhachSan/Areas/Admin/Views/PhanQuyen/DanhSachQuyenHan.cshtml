@@ -1,0 +1,74 @@
+﻿@model PagedList.IPagedList<Model.EF.ChiTiet_QuyenHan>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "DanhSachQuyenHan";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Danh sách quyền người dùng
+}
+
+<p>
+    @Html.ActionLink("Cấp quyền", "DanhSachCanThem")
+</p>
+@using (Html.BeginForm("DanhSachQuyenHan", "PhanQuyen", FormMethod.Get))
+{
+    <div class="row form-group">
+        <div class="col-lg-12">
+            <div class="col-md-4">
+                <input type="text" value="@ViewBag.SearchString" class="form-control" placeholder="Mời nhập tên cần tìm" name="searchString" />
+                <button type="submit" class="btn btn-success">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            Mã người dùng
+        </th>
+        <th>
+            Tên người dùng
+        </th>
+        <th>
+            Quyền hạn
+        </th>
+        <th>
+            Ngày phân quyền
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr id="row_@item.MaNguoiDung">
+            <td>
+                @Html.DisplayFor(modelItem => item.MaNguoiDung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DanhSachNguoiDung.TenNguoiDung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuyenHan.TenQuyenHan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayPhan)
+            </td>
+            <td>
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaNguoiDung }) |
+                @Html.ActionLink("Sửa", "CapNhat", new { id = item.MaNguoiDung }) |
+                @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaNguoiDung }, new AjaxOptions
+               {
+                   Confirm = "Bạn có muốn xóa thông tin này không.",
+                   OnComplete = "$('#row_" + @item.MaNguoiDung + "').remove()",
+                   HttpMethod = "Delete"
+               })
+            </td>
+        </tr>
+    }
+
+</table>
+<label>
+    Trang số: @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+</label>

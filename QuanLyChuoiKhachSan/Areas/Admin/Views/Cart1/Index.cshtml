@@ -1,0 +1,91 @@
+﻿@model List<QuanLyChuoiKhachSan.Areas.Admin.Models.CartItem>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header {
+    Danh sách sản phẩm cần nhập
+}
+
+@section jsFooter{
+    <script src="~/Assets/Admin/js/controller/cart1Controller.js"></script>
+}
+@if (Model.Count > 0)
+{
+    <button id="btnChon" class="btn alert-link" style="background-color:burlywood;color:black" onclick="ChonNhaCungCap()">Chọn nhà cung cấp</button>
+    <div id="nhaCungCap" style="display:none">
+        <div class="form-group">
+            <label for="MaNhaCungCap" class="control-label col-md-2">Nhà cung cấp</label>
+            <div class="col-md-5">
+                @Html.DropDownList("MaNhaCungCap", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr style="background-color:lightblue">
+                <td>Mã Hàng</td>
+                <td>Tên Hàng</td>
+                <td>Số Lượng</td>
+                <td>Đơn Giá</td>
+                <td>Thành tiền</td>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr id="row_@item.Hang_Hoa.MaHang">
+
+                    <td>@item.Hang_Hoa.MaHang</td>
+                    <td>@item.Hang_Hoa.TenHang</td>
+                    <td><input type="number" style="text-align:center" class="txtSoLuong" data-id="@item.Hang_Hoa.MaHang" id="SoLuong" name="SoLuong" value="@item.SoLuong" min="1" max="100" /></td>
+                    <td>@item.Hang_Hoa.DonGia.GetValueOrDefault(0).ToString("N0")</td>
+                    <td>@((item.Hang_Hoa.DonGia.GetValueOrDefault(0) * item.SoLuong).ToString("N0"))</td>
+
+                    <td>
+                        @Html.ActionLink("Xóa", "Xoa", "Cart1", new { @maHang = item.Hang_Hoa.MaHang },
+                       new { onclick = "return confirm ('Bạn có muốn xóa item này');" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div style="text-align:right">
+        Tổng sản phẩm: @Model.Count
+    </div>
+    <hr />
+    <a href="/Admin/Donhang/SanPham"><button @*id="btnContinue"*@ class="btn alert-link" style="background-color:orange">Thêm hàng</button></a>
+    <button id="btnUpdate" class="btn alert-link" style="background-color:orange">Cập nhật hàng</button>
+    <button id="btnDelete" class="btn alert-link" style="background-color:orange">Xóa danh sách</button>
+    <a href="/Admin/Cart1/TaoDonHang"><button id="btnTaoDonHang" class="btn alert-danger" style="background-color:red">Tạo đơn hàng</button></a>
+
+
+}
+else
+{
+    <div style="text-align:center; padding-top: 30px">
+        <span class="alert alert-danger">Chưa có hàng hóa nào cần xuất kho</span>
+        <div>
+            <button style="margin-top:10%"><a href="/Admin/DonHang/SanPham">Chọn hàng cần xuất</a> </button>
+        </div>
+    </div>
+
+
+}
+
+<script>
+    function ChonNhaCungCap() {
+        var x = document.getElementById("nhaCungCap");
+        var y = document.getElementById("btnChon");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+        } else {
+            x.style.display = "none";
+            y.style.display = "block";
+        }
+    }
+</script>
