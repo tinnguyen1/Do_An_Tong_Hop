@@ -28,6 +28,10 @@ namespace Model.Dao
             return db.ChiTietHangHoas.Where(x=>x.MaHang==mh).ToList();
         }
 
+        public List<ChiTietHangHoa> ThongTinTimTheoMaHang_MaKho(int mh, int mk)
+        {
+            return db.ChiTietHangHoas.Where(x => x.MaHang == mh&& x.MaKho==mk).Take(1).ToList();
+        }
 
         public IEnumerable<ChiTietHangHoa> LayTatCaDSTheoMaKho(int page, int pagesize,int maKho)
         {

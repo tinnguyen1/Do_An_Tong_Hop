@@ -12,7 +12,6 @@
     <script src="/Assets/Admin/js/controller/cartController.js"></script>
 }
 
-
 @if (Model.Count > 0)
 {
     <table class="table">
@@ -52,9 +51,7 @@
     <a href="/Admin/XuatHang"><button @*id="btnContinue"*@ class="btn alert-link" style="background-color:orange">Thêm hàng</button></a>
     <button id="btnUpdate" class="btn alert-link" style="background-color:orange">Cập nhật hàng</button>
     <button id="btnDelete" class="btn alert-link" style="background-color:orange">Xóa danh sách</button>
-    <a href="/Admin/Cart/TaoDonHang"><button id="btnTaoDonHang" class="btn alert-danger" style="background-color:red">Tạo đơn hàng</button></a>
-
-
+    <a href="/Admin/Cart/XuatHang"><button id="btnTaoDonHang" class="btn alert-danger" style="background-color:red">Tạo đơn hàng</button></a>
 }
 else
 {
@@ -67,6 +64,7 @@ else
 
 
 }
+
 
 @*<style>
         .txtSoLuong{

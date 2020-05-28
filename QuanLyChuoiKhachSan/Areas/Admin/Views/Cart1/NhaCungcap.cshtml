@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "NhaCungcap";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header {
+    Chọn nhà cung cấp hàng
+}
+
+<form action="NhaCungcap" method="post">
+    <p style="text-align:center;color:red"> chọn nhà cung cấp hàng: xin vui lòng chọn kĩ thông tin nhà cung cấp hàng hóa</p>
+    <table class="table" style="margin-top:5%;">
+        <tr>
+            <td style="float:right"><label>Chọn nhà cung cấp hàng</label></td>
+            <td>
+                <div class="col-md-6">
+                    @Html.DropDownList("MaNhaCungCap", null, htmlAttributes: new { @class = "form-control" })
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="form-group" style="text-align:center">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Bước tiếp theo" class="btn btn-default alert-danger" />
+        </div>
+    </div>
+</form>

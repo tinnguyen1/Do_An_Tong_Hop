@@ -25,7 +25,7 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        //[ValidateInput(false)]
+        [ValidateInput(false)]
         public ActionResult ThemMoiKhachSan(KhachSan ks)
         {
             if(ks.imageFileks==null)

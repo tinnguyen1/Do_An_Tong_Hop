@@ -78,6 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\ChiTietDon_HangDao.cs" />
     <Compile Include="Dao\ChiTiet_HangHoaDao.cs" />
     <Compile Include="Dao\CT_QHDao.cs" />
     <Compile Include="Dao\DonHangDao.cs" />
@@ -96,16 +97,16 @@
     <Compile Include="EF\ChiTietDonHang.cs" />
     <Compile Include="EF\ChiTietHangHoa.cs" />
     <Compile Include="EF\ChiTietHoaDon.cs" />
-    <Compile Include="EF\ChiTietNhapHang.cs" />
-    <Compile Include="EF\ChiTietSuDungDichVu.cs" />
     <Compile Include="EF\ChiTiet_QuyenHan.cs" />
     <Compile Include="EF\CT_DatPhong.cs" />
+    <Compile Include="EF\CT_NhapHang.cs" />
     <Compile Include="EF\DanhSachNguoiDung.cs" />
     <Compile Include="EF\DichVu.cs" />
     <Compile Include="EF\DonHang.cs" />
     <Compile Include="EF\DS_XuatKho.cs" />
     <Compile Include="EF\HangHoa.cs" />
     <Compile Include="EF\HoaDon.cs" />
+    <Compile Include="EF\HoaDon_DichVu.cs" />
     <Compile Include="EF\KhachHang.cs" />
     <Compile Include="EF\KhachSan.cs" />
     <Compile Include="EF\KhoHang.cs" />

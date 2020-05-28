@@ -72,5 +72,10 @@ namespace Model.Dao
             return true;
         }
 
+        public List<DonHang> DonHangMoiTao()
+        {
+            return db.DonHangs.OrderByDescending(x => x.MaDonHang).Take(1).ToList();
+        }
+
     }
 }

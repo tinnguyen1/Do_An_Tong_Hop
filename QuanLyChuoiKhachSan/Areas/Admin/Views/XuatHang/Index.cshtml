@@ -9,52 +9,62 @@
     Danh sách hàng hóa trong kho
 }
 
-<table class="table">
-    <tr>
-        <th>
-            Mã hàng
-        </th>
-        <th>
-            Tên hàng hóa
-        </th>
-        <th>
-            Loại Hàng
-        </th>
-        <th>
-            Số lượng
-        </th>
-        <th>
-            Đơn Giá
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr id="row_@item.MaHang">
-            <td>
-                @Html.DisplayFor(modelItem => item.MaHang)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HangHoa.TenHang)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HangHoa.LoaiHang.TenLoaiHang)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Soluong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DonGia)
-            </td>
-
-            <td>
-                <a href="/Admin/Cart/AddItem?MaHang=@item.MaHang&SoLuong=1">Xuất Hàng</a>
-            </td>
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+                Mã hàng
+            </th>
+            <th>
+                Loại Hàng
+            </th>
+            <th>
+                Loại Hàng
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th>
+                Đơn Giá
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
-<label>
-    Trang số: @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
-</label>
+        @foreach (var item in Model)
+        {
+            <tr id="row_@item.MaHang">
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaHang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HangHoa.LoaiHang.TenLoaiHang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HangHoa.TenHang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Soluong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonGia)
+                </td>
+
+                <td>
+                    <a href="/Admin/Cart/AddItem?MaHang=@item.MaHang&SoLuong=1">Xuất Hàng</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <label>
+        Trang số: @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+    </label>
+}
+else
+{
+    <p style="color:red; text-align:center">Hiện tại không có hàng trong kho bạn đang quản lý vui lòng kiểm tra lại</p>
+}
+
+
+

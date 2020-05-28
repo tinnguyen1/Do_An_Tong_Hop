@@ -15,6 +15,11 @@ namespace Model.Dao
             db = new QuanLyChuoiKhachSanDBContext();
         }
 
+        public NhaCungCap viewDental(int ma)
+        {
+            return db.NhaCungCaps.Find(ma);
+        }
+
         public List<NhaCungCap> ListAll()
         {
             return db.NhaCungCaps.ToList();

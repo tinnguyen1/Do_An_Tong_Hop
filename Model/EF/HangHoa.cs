@@ -1,8 +1,7 @@
-﻿namespace Model.EF
+namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -14,35 +13,45 @@
         public HangHoa()
         {
             ChiTietHangHoas = new HashSet<ChiTietHangHoa>();
-            ChiTietNhapHangs = new HashSet<ChiTietNhapHang>();
+            ChiTietHangHoas1 = new HashSet<ChiTietHangHoa>();
+            CT_NhapHang = new HashSet<CT_NhapHang>();
+            CT_NhapHang1 = new HashSet<CT_NhapHang>();
             DS_XuatKho = new HashSet<DS_XuatKho>();
+            DS_XuatKho1 = new HashSet<DS_XuatKho>();
         }
 
         [Key]
-        [DisplayName("Mã Hàng Hóa")]
         public int MaHang { get; set; }
 
-        [DisplayName("Mã Loại Hàng")]
         public int MaLoaiHang { get; set; }
 
         [StringLength(50)]
-        [DisplayName("Tên Hàng")]
         public string TenHang { get; set; }
-        [DisplayName("Đơn Giá")]
+
         public double? DonGia { get; set; }
-        [DisplayName("Ngày Tạo")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
+
         public DateTime? NgayNhap { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHangHoa> ChiTietHangHoas { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietNhapHang> ChiTietNhapHangs { get; set; }
+        public virtual ICollection<ChiTietHangHoa> ChiTietHangHoas1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CT_NhapHang> CT_NhapHang { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CT_NhapHang> CT_NhapHang1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DS_XuatKho> DS_XuatKho { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DS_XuatKho> DS_XuatKho1 { get; set; }
+
         public virtual LoaiHang LoaiHang { get; set; }
+
+        public virtual LoaiHang LoaiHang1 { get; set; }
     }
 }

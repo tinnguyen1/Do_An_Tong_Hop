@@ -2094,6 +2094,7 @@
     <Content Include="Areas\Admin\Views\DonHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\SanPham.cshtml" />
     <Content Include="Areas\Admin\Views\Cart1\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Cart1\NhaCungcap.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Model.Dao
 {
-    public class DS_XuatKhoDao
+    public class ChiTietDonHangDao
     {
         QuanLyChuoiKhachSanDBContext db = null;
-        public DS_XuatKhoDao()
+        public ChiTietDonHangDao()
         {
             db = new QuanLyChuoiKhachSanDBContext();
         }

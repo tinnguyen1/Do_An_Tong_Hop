@@ -1,8 +1,7 @@
-﻿namespace Model.EF
+namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -14,17 +13,19 @@
         public QuyenHan()
         {
             ChiTiet_QuyenHan = new HashSet<ChiTiet_QuyenHan>();
+            ChiTiet_QuyenHan1 = new HashSet<ChiTiet_QuyenHan>();
         }
 
         [Key]
-        [DisplayName("Mã Quyền Hạn")]
         public int MaQuyenHan { get; set; }
 
         [StringLength(50)]
-        [DisplayName("Tên Quyền Hạn")]
         public string TenQuyenHan { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTiet_QuyenHan> ChiTiet_QuyenHan { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChiTiet_QuyenHan> ChiTiet_QuyenHan1 { get; set; }
     }
 }

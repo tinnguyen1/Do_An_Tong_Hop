@@ -12,5 +12,7 @@ namespace QuanLyChuoiKhachSan.Common
         public static string MaND_SESSTION = "MaND_SESSTION";
 
         public static string CartSesstion = "CartSession";
+
+        public static string NhaCCSesstion = "NhaCCSesstion";
     }
 }

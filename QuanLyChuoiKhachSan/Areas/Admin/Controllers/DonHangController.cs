@@ -44,7 +44,7 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
                     if (id)
                     {
                         // SetAlert("Thêm quyền thành công", "success");
-                        return RedirectToAction("SanPham", "DonHang");
+                        return RedirectToAction("NhaCungcap", "Cart1");
                     }
                     else
                     {

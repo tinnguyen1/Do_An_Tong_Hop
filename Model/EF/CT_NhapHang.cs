@@ -6,22 +6,21 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ChiTietHangHoa")]
-    public partial class ChiTietHangHoa
+    public partial class CT_NhapHang
     {
         [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int MaKho { get; set; }
+        public int STT { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaHang { get; set; }
 
-        public int? Soluong { get; set; }
+        public int MaNhaCungCap { get; set; }
 
-        public double? DonGia { get; set; }
+        public int MaKho { get; set; }
+
+        [StringLength(50)]
+        public string NguoiNhap { get; set; }
+
+        public DateTime? NgayNhap { get; set; }
 
         public virtual HangHoa HangHoa { get; set; }
 
@@ -30,5 +29,9 @@ namespace Model.EF
         public virtual KhoHang KhoHang { get; set; }
 
         public virtual KhoHang KhoHang1 { get; set; }
+
+        public virtual NhaCungCap NhaCungCap { get; set; }
+
+        public virtual NhaCungCap NhaCungCap1 { get; set; }
     }
 }
