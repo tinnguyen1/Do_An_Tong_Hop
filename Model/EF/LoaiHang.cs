@@ -13,7 +13,6 @@ namespace Model.EF
         public LoaiHang()
         {
             HangHoas = new HashSet<HangHoa>();
-            HangHoas1 = new HashSet<HangHoa>();
         }
 
         [Key]
@@ -24,8 +23,5 @@ namespace Model.EF
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HangHoa> HangHoas { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HangHoa> HangHoas1 { get; set; }
     }
 }

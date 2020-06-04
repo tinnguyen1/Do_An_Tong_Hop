@@ -18,9 +18,30 @@ namespace Model.Dao
 
         public int ThemMoi(ChiTietHangHoa ma)
         {
-            db.ChiTietHangHoas.Add(ma);
-            db.SaveChanges();
-            return ma.MaKho;
+            try
+            {
+                var tim = TimKiem(ma.MaKho, ma.MaHang);
+                if (tim!=null)
+                {
+                    tim.Soluong = tim.Soluong + ma.Soluong;
+                    tim.DonGia = ma.DonGia;
+                    db.SaveChanges();
+                    return 0;
+                }
+                else
+                {
+                    db.ChiTietHangHoas.Add(ma);
+                    db.SaveChanges();
+                    return 1;
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+
+            
         }
 
         public List<ChiTietHangHoa> ListHangTheoMaHang(int mh)
@@ -30,7 +51,7 @@ namespace Model.Dao
 
         public List<ChiTietHangHoa> ThongTinTimTheoMaHang_MaKho(int mh, int mk)
         {
-            return db.ChiTietHangHoas.Where(x => x.MaHang == mh&& x.MaKho==mk).Take(1).ToList();
+            return db.ChiTietHangHoas.Where(x => x.MaHang == mh && x.MaKho==mk).Take(1).ToList();
         }
 
         public IEnumerable<ChiTietHangHoa> LayTatCaDSTheoMaKho(int page, int pagesize,int maKho)

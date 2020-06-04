@@ -13,7 +13,6 @@ namespace Model.EF
         public HoaDon()
         {
             ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
-            ChiTietHoaDons1 = new HashSet<ChiTietHoaDon>();
         }
 
         [Key]
@@ -34,11 +33,6 @@ namespace Model.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons1 { get; set; }
-
         public virtual KhachHang KhachHang { get; set; }
-
-        public virtual KhachHang KhachHang1 { get; set; }
     }
 }

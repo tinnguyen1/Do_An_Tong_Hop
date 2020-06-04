@@ -163,6 +163,7 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
                 if (item.SoLuong > 0)
                 {
                     BienTam.LoaiHangHoa = item.Hang_Hoa.LoaiHang.TenLoaiHang;
+                    BienTam.TenHang = item.Hang_Hoa.TenHang;
                     BienTam.SoLuong = item.SoLuong;
                     BienTam.Gia = item.Hang_Hoa.DonGia;
                     var id = dao.Add(BienTam);
@@ -170,7 +171,7 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
                 }
             }
             var result = ExportData(Ncc, donhang);
-
+            Session[NhapHangSesstion] = null;
             return RedirectToAction("Index", "Cart1");
         }
 
@@ -197,7 +198,8 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
                     if (startRow == 1)
                     {
                         ws.Cells[startRow, 1].Value = "Người Tạo";
-                        ws.Cells[startRow, 2].Value = dao2.TenNguoiDung + " (" + dao2.MaNguoiDung + ")";
+                        ws.Cells[startRow, 2].Value = dao2.TenNguoiDung;
+                        ws.Cells[startRow, 3].Value = dao2.MaNguoiDung;
                         ws.Cells[startRow + 1, 1].Value = "Ngày tạo";
                         ws.Cells[startRow + 1, 2].Value = DateTime.Now.ToString("dd_MM_yyy");
                         ws.Cells[startRow + 1, 4].Value = "Ngày Giao";

@@ -17,9 +17,6 @@ namespace Model.EF
         [StringLength(15)]
         public string SDT { get; set; }
 
-        [StringLength(15)]
-        public string GioiTinh { get; set; }
-
         [StringLength(50)]
         public string Email { get; set; }
 
@@ -38,8 +35,9 @@ namespace Model.EF
         [StringLength(15)]
         public string TinhTrang { get; set; }
 
-        public virtual CT_DatPhong CT_DatPhong { get; set; }
+        [StringLength(15)]
+        public string GioiTinh { get; set; }
 
-        public virtual CT_DatPhong CT_DatPhong1 { get; set; }
+        public virtual CT_DatPhong CT_DatPhong { get; set; }
     }
 }

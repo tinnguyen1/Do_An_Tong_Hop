@@ -13,7 +13,6 @@ namespace Model.EF
         public LoaiPhong()
         {
             BangGiaPhongs = new HashSet<BangGiaPhong>();
-            BangGiaPhongs1 = new HashSet<BangGiaPhong>();
         }
 
         [Key]
@@ -30,8 +29,5 @@ namespace Model.EF
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BangGiaPhong> BangGiaPhongs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BangGiaPhong> BangGiaPhongs1 { get; set; }
     }
 }

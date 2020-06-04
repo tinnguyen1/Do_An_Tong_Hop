@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "ThanhCong";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Danh sách hàng đã import
+}
+
+<table class="table">
+    <tr>
+        <th>Mã Hàng</th>
+        <th>Tên hàng</th>
+        <th>Tên loai hang</th>
+        <th>Số Lượng</th>
+        <th>Đơn Giá</th>
+    </tr>
+    @foreach (var p in ViewBag.ListHang)
+    {
+        <tr>
+            <td>@p.Mahang</td>
+            <td>@p.TenHang</td>
+            <td>@p.TenLoaihang</td>
+            <td>@p.SoLuong</td>
+            <td>@p.DonGia</td>
+        </tr>
+    }
+</table>
+

@@ -37,11 +37,7 @@ namespace Model.EF
 
         public virtual HoaDon HoaDon { get; set; }
 
-        public virtual HoaDon HoaDon1 { get; set; }
-
         public virtual PhongKhachSan PhongKhachSan { get; set; }
-
-        public virtual PhongKhachSan PhongKhachSan1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon_DichVu> HoaDon_DichVu { get; set; }

@@ -12,8 +12,8 @@ namespace Model.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhaCungCap()
         {
+            ChiTietDonHangs = new HashSet<ChiTietDonHang>();
             CT_NhapHang = new HashSet<CT_NhapHang>();
-            CT_NhapHang1 = new HashSet<CT_NhapHang>();
         }
 
         [Key]
@@ -28,14 +28,10 @@ namespace Model.EF
         [StringLength(15)]
         public string SDT { get; set; }
 
-        public virtual ChiTietDonHang ChiTietDonHang { get; set; }
-
-        public virtual ChiTietDonHang ChiTietDonHang1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_NhapHang> CT_NhapHang { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_NhapHang> CT_NhapHang1 { get; set; }
     }
 }

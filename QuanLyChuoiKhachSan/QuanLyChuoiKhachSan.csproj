@@ -72,6 +72,10 @@
       <HintPath>..\packages\EPPlus.5.1.2\lib\net45\EPPlus.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -162,19 +166,25 @@
     <Compile Include="Areas\Admin\Controllers\DangNhapController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\HangHoaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HoaDonController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhachHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhachSanController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhoHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhuyenMaiController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoaiHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\NguoiDungController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhapHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanQuyenController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyKhoHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuyenHanController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiKhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\XuatHangController.cs" />
+    <Compile Include="Areas\Admin\DichVuController.cs" />
     <Compile Include="Areas\Admin\Models\CartItem.cs" />
     <Compile Include="Areas\Admin\Models\DangNhapModel.cs" />
+    <Compile Include="Areas\Admin\Models\Excel_hanghoa.cs" />
+    <Compile Include="Areas\Admin\Models\Excel_thongtin.cs" />
     <Compile Include="Areas\NhanVien\NhanVienAreaRegistration.cs" />
     <Compile Include="Areas\QuanLy\QuanLyAreaRegistration.cs" />
     <Compile Include="Common\AdminDangNhap.cs" />
@@ -2095,6 +2105,14 @@
     <Content Include="Areas\Admin\Views\DonHang\SanPham.cshtml" />
     <Content Include="Areas\Admin\Views\Cart1\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Cart1\NhaCungcap.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\ColumnChart.cshtml" />
+    <Content Include="Areas\Admin\Views\NhapHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhapHang\ThanhCong.cshtml" />
+    <Content Include="Areas\Admin\Views\NhapHang\DanhSachNhapHang.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVu\ThemMoi.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVu\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2109,6 +2127,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsapi.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\plugins\codesample\css\prism.css" />
@@ -2166,12 +2185,14 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\HoaDon\" />
     <Folder Include="Areas\NhanVien\Controllers\" />
     <Folder Include="Areas\NhanVien\Models\" />
     <Folder Include="Areas\NhanVien\Views\Shared\" />
     <Folder Include="Areas\QuanLy\Controllers\" />
     <Folder Include="Areas\QuanLy\Models\" />
     <Folder Include="Areas\QuanLy\Views\Shared\" />
+    <Folder Include="Content\Excelfile\" />
     <Folder Include="Controllers\" />
     <Folder Include="Image\" />
     <Folder Include="Models\" />

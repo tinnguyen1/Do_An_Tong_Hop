@@ -16,12 +16,10 @@ namespace Model.EF
 
         public double? TongGia { get; set; }
 
+        public int? STT { get; set; }
+
         public virtual Bang_DS_DatPhong Bang_DS_DatPhong { get; set; }
 
-        public virtual Bang_DS_DatPhong Bang_DS_DatPhong1 { get; set; }
-
         public virtual PhongKhachSan PhongKhachSan { get; set; }
-
-        public virtual PhongKhachSan PhongKhachSan1 { get; set; }
     }
 }

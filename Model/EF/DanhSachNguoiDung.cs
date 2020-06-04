@@ -14,11 +14,8 @@ namespace Model.EF
         public DanhSachNguoiDung()
         {
             ChiTiet_QuyenHan = new HashSet<ChiTiet_QuyenHan>();
-            ChiTiet_QuyenHan1 = new HashSet<ChiTiet_QuyenHan>();
             KhuyenMais = new HashSet<KhuyenMai>();
-            KhuyenMais1 = new HashSet<KhuyenMai>();
             QuanLyKhoHangs = new HashSet<QuanLyKhoHang>();
-            QuanLyKhoHangs1 = new HashSet<QuanLyKhoHang>();
         }
 
         [Key]
@@ -52,20 +49,10 @@ namespace Model.EF
         public virtual ICollection<ChiTiet_QuyenHan> ChiTiet_QuyenHan { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTiet_QuyenHan> ChiTiet_QuyenHan1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KhuyenMai> KhuyenMais { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhuyenMai> KhuyenMais1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QuanLyKhoHang> QuanLyKhoHangs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuanLyKhoHang> QuanLyKhoHangs1 { get; set; }
-
         [NotMapped]
         public HttpPostedFileBase imageFile { get; set; }
     }

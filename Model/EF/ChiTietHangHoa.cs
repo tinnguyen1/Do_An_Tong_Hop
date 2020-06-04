@@ -25,10 +25,6 @@ namespace Model.EF
 
         public virtual HangHoa HangHoa { get; set; }
 
-        public virtual HangHoa HangHoa1 { get; set; }
-
         public virtual KhoHang KhoHang { get; set; }
-
-        public virtual KhoHang KhoHang1 { get; set; }
     }
 }

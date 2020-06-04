@@ -15,12 +15,11 @@ namespace Model.Dao
             db = new QuanLyChuoiKhachSanDBContext();
         }
 
-        
-        public bool Add(ChiTietDonHang chitietdonhang)
+        public bool Add(ChiTietDonHang ma)
         {
             try
             {
-                db.ChiTietDonHangs.Add(chitietdonhang);
+                db.ChiTietDonHangs.Add(ma);
                 db.SaveChanges();
                 return true;
             }

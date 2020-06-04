@@ -9,10 +9,11 @@ namespace Model.EF
     [Table("ChiTietDonHang")]
     public partial class ChiTietDonHang
     {
+        [Key]
+        public int Stt { get; set; }
+
         public int MaDonHang { get; set; }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaNhaCungCap { get; set; }
 
         [StringLength(50)]
@@ -27,10 +28,6 @@ namespace Model.EF
 
         public virtual DonHang DonHang { get; set; }
 
-        public virtual DonHang DonHang1 { get; set; }
-
         public virtual NhaCungCap NhaCungCap { get; set; }
-
-        public virtual NhaCungCap NhaCungCap1 { get; set; }
     }
 }

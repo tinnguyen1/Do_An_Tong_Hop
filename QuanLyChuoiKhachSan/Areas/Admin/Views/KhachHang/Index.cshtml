@@ -1,0 +1,79 @@
+﻿@model PagedList.IPagedList<Model.EF.KhachHang>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Danh Sách khách hàng
+}
+
+
+@using (Html.BeginForm("Index", "KhachHang", FormMethod.Get))
+{
+    <div class="row form-group">
+        <div class="col-lg-12">
+            <div class="col-md-4">
+                <input type="text" value="@ViewBag.SearchString" class="form-control" placeholder="Mời nhập tên cần tìm" name="searchString" />
+                <button type="submit" class="btn btn-success">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            Mã Khách Hàng
+        </th>
+        <th>
+            Tên Khách hàng
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Email
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr id="row_@item.MaKhachHang">
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKhachHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaKhachHang }, new AjaxOptions
+              {
+                  Confirm = "Bạn có muốn xóa quyền hạn này không.",
+                  OnComplete = "$('#row_" + @item.MaKhachHang + "').remove()",
+                  HttpMethod = "Delete"
+              })
+            </td>
+        </tr>
+    }
+
+</table>
+<label>
+    Trang số: @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+</label>

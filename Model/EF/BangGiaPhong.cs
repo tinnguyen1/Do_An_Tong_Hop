@@ -13,7 +13,6 @@ namespace Model.EF
         public BangGiaPhong()
         {
             PhongKhachSans = new HashSet<PhongKhachSan>();
-            PhongKhachSans1 = new HashSet<PhongKhachSan>();
         }
 
         [Key]
@@ -27,12 +26,7 @@ namespace Model.EF
 
         public virtual LoaiPhong LoaiPhong { get; set; }
 
-        public virtual LoaiPhong LoaiPhong1 { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhongKhachSan> PhongKhachSans { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhongKhachSan> PhongKhachSans1 { get; set; }
     }
 }

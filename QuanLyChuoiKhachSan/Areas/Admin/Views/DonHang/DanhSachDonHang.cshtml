@@ -50,6 +50,9 @@
                 @Html.DisplayFor(modelItem => item.NgayGiao)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.NgayTao)
+            </td>
+            <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.MaDonHang }) |
                 @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaDonHang }, new AjaxOptions
                {

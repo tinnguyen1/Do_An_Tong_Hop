@@ -80,10 +80,14 @@
   <ItemGroup>
     <Compile Include="Dao\ChiTietDon_HangDao.cs" />
     <Compile Include="Dao\ChiTiet_HangHoaDao.cs" />
+    <Compile Include="Dao\CT_NhapHangDao.cs" />
     <Compile Include="Dao\CT_QHDao.cs" />
+    <Compile Include="Dao\DichVuDao.cs" />
     <Compile Include="Dao\DonHangDao.cs" />
     <Compile Include="Dao\DS_XuatKhoDao.cs" />
     <Compile Include="Dao\HangHoaDao.cs" />
+    <Compile Include="Dao\HoaDonDao.cs" />
+    <Compile Include="Dao\KhachHangDao.cs" />
     <Compile Include="Dao\KhachSanDao.cs" />
     <Compile Include="Dao\KhoHangDao.cs" />
     <Compile Include="Dao\KhuyenMaiDao.cs" />

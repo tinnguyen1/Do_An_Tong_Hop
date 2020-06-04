@@ -13,7 +13,6 @@ namespace Model.EF
         public QuyenHan()
         {
             ChiTiet_QuyenHan = new HashSet<ChiTiet_QuyenHan>();
-            ChiTiet_QuyenHan1 = new HashSet<ChiTiet_QuyenHan>();
         }
 
         [Key]
@@ -24,8 +23,5 @@ namespace Model.EF
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTiet_QuyenHan> ChiTiet_QuyenHan { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTiet_QuyenHan> ChiTiet_QuyenHan1 { get; set; }
     }
 }

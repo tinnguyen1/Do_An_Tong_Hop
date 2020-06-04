@@ -1,0 +1,70 @@
+﻿@model PagedList.IPagedList<Model.EF.CT_NhapHang>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "DanhSachNhapHang";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Danh sách hàng đã nhập
+}
+
+<p>
+    @Html.ActionLink("Nhập hàng", "Index")
+</p>
+@using (Html.BeginForm("DanhSachNhapHang", "NhapHang", FormMethod.Get))
+{
+    <div class="row form-group">
+        <div class="col-lg-12">
+            <div class="col-md-4">
+                <input type="text" value="@ViewBag.SearchString" class="form-control" placeholder="Mời nhập tên cần tìm" name="searchString" />
+                <button type="submit" class="btn btn-success">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <tr style="background-color:lightblue">
+        <th>
+            STT
+        </th>
+        <th>
+            Kho Hàng
+        </th>
+        <th>
+            Nhà Cung cấp
+        </th>
+        <th>
+            Người Nhập Hàng
+        </th>
+        <th>
+            Ngày Nhập
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HangHoa.TenHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhoHang.KhachSan.TenKhachSan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NhaCungCap.TenNhaCungCap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NguoiNhap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayNhap)
+            </td>
+        </tr>
+    }
+
+</table>
+<label>
+    Trang số: @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+</label>

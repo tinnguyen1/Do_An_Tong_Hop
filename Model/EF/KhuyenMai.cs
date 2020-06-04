@@ -31,7 +31,5 @@ namespace Model.EF
         public string MaNguoiDung { get; set; }
 
         public virtual DanhSachNguoiDung DanhSachNguoiDung { get; set; }
-
-        public virtual DanhSachNguoiDung DanhSachNguoiDung1 { get; set; }
     }
 }

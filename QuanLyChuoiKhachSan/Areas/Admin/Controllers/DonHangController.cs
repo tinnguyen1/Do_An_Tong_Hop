@@ -40,6 +40,7 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
                 if (quyenhan.NgayGiao>DateTime.Now)
                 {
                     var dao = new DonHangDao();
+                    quyenhan.NgayTao = DateTime.Now;
                     var id = dao.ThemMoi(quyenhan);
                     if (id)
                     {

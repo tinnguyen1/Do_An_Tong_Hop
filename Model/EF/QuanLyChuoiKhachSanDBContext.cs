@@ -45,10 +45,6 @@ namespace Model.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<Bang_DS_DatPhong>()
-                .Property(e => e.GioiTinh)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Bang_DS_DatPhong>()
                 .Property(e => e.Email)
                 .IsUnicode(false);
 
@@ -57,23 +53,16 @@ namespace Model.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<Bang_DS_DatPhong>()
-                .HasOptional(e => e.CT_DatPhong)
-                .WithRequired(e => e.Bang_DS_DatPhong);
+                .Property(e => e.GioiTinh)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Bang_DS_DatPhong>()
-                .HasOptional(e => e.CT_DatPhong1)
-                .WithRequired(e => e.Bang_DS_DatPhong1);
+                .HasOptional(e => e.CT_DatPhong)
+                .WithRequired(e => e.Bang_DS_DatPhong);
 
             modelBuilder.Entity<BangGiaPhong>()
                 .HasMany(e => e.PhongKhachSans)
                 .WithRequired(e => e.BangGiaPhong)
-                .HasForeignKey(e => e.MaBangGiaPhong)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<BangGiaPhong>()
-                .HasMany(e => e.PhongKhachSans1)
-                .WithRequired(e => e.BangGiaPhong1)
-                .HasForeignKey(e => e.MaBangGiaPhong)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ChiTiet_QuyenHan>()
@@ -121,37 +110,16 @@ namespace Model.EF
             modelBuilder.Entity<DanhSachNguoiDung>()
                 .HasMany(e => e.ChiTiet_QuyenHan)
                 .WithRequired(e => e.DanhSachNguoiDung)
-                .HasForeignKey(e => e.MaNguoiDung)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<DanhSachNguoiDung>()
-                .HasMany(e => e.ChiTiet_QuyenHan1)
-                .WithRequired(e => e.DanhSachNguoiDung1)
-                .HasForeignKey(e => e.MaNguoiDung)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<DanhSachNguoiDung>()
                 .HasMany(e => e.KhuyenMais)
                 .WithRequired(e => e.DanhSachNguoiDung)
-                .HasForeignKey(e => e.MaNguoiDung)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<DanhSachNguoiDung>()
-                .HasMany(e => e.KhuyenMais1)
-                .WithRequired(e => e.DanhSachNguoiDung1)
-                .HasForeignKey(e => e.MaNguoiDung)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<DanhSachNguoiDung>()
                 .HasMany(e => e.QuanLyKhoHangs)
                 .WithRequired(e => e.DanhSachNguoiDung)
-                .HasForeignKey(e => e.MaNguoiDung)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<DanhSachNguoiDung>()
-                .HasMany(e => e.QuanLyKhoHangs1)
-                .WithRequired(e => e.DanhSachNguoiDung1)
-                .HasForeignKey(e => e.MaNguoiDung)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<DichVu>()
@@ -162,49 +130,21 @@ namespace Model.EF
             modelBuilder.Entity<DonHang>()
                 .HasMany(e => e.ChiTietDonHangs)
                 .WithRequired(e => e.DonHang)
-                .HasForeignKey(e => e.MaDonHang)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<DonHang>()
-                .HasMany(e => e.ChiTietDonHangs1)
-                .WithRequired(e => e.DonHang1)
-                .HasForeignKey(e => e.MaDonHang)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<HangHoa>()
                 .HasMany(e => e.ChiTietHangHoas)
                 .WithRequired(e => e.HangHoa)
-                .HasForeignKey(e => e.MaHang)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<HangHoa>()
-                .HasMany(e => e.ChiTietHangHoas1)
-                .WithRequired(e => e.HangHoa1)
-                .HasForeignKey(e => e.MaHang)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<HangHoa>()
                 .HasMany(e => e.CT_NhapHang)
                 .WithRequired(e => e.HangHoa)
-                .HasForeignKey(e => e.MaHang)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<HangHoa>()
-                .HasMany(e => e.CT_NhapHang1)
-                .WithRequired(e => e.HangHoa1)
-                .HasForeignKey(e => e.MaHang)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<HangHoa>()
                 .HasMany(e => e.DS_XuatKho)
                 .WithRequired(e => e.HangHoa)
-                .HasForeignKey(e => e.MaHang)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<HangHoa>()
-                .HasMany(e => e.DS_XuatKho1)
-                .WithRequired(e => e.HangHoa1)
-                .HasForeignKey(e => e.MaHang)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<HoaDon>()
@@ -214,13 +154,6 @@ namespace Model.EF
             modelBuilder.Entity<HoaDon>()
                 .HasMany(e => e.ChiTietHoaDons)
                 .WithRequired(e => e.HoaDon)
-                .HasForeignKey(e => e.MaHoaDon)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<HoaDon>()
-                .HasMany(e => e.ChiTietHoaDons1)
-                .WithRequired(e => e.HoaDon1)
-                .HasForeignKey(e => e.MaHoaDon)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<HoaDon_DichVu>()
@@ -242,13 +175,6 @@ namespace Model.EF
             modelBuilder.Entity<KhachHang>()
                 .HasMany(e => e.HoaDons)
                 .WithRequired(e => e.KhachHang)
-                .HasForeignKey(e => e.MaKhachHang)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KhachHang>()
-                .HasMany(e => e.HoaDons1)
-                .WithRequired(e => e.KhachHang1)
-                .HasForeignKey(e => e.MaKhachHang)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KhachSan>()
@@ -270,37 +196,16 @@ namespace Model.EF
             modelBuilder.Entity<KhachSan>()
                 .HasMany(e => e.DonHangs)
                 .WithRequired(e => e.KhachSan)
-                .HasForeignKey(e => e.MaKhachSan)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KhachSan>()
-                .HasMany(e => e.DonHangs1)
-                .WithRequired(e => e.KhachSan1)
-                .HasForeignKey(e => e.MaKhachSan)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KhachSan>()
                 .HasMany(e => e.KhoHangs)
                 .WithRequired(e => e.KhachSan)
-                .HasForeignKey(e => e.MaKhachSan)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KhachSan>()
-                .HasMany(e => e.KhoHangs1)
-                .WithRequired(e => e.KhachSan1)
-                .HasForeignKey(e => e.MaKhachSan)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KhachSan>()
                 .HasMany(e => e.PhongKhachSans)
                 .WithRequired(e => e.KhachSan)
-                .HasForeignKey(e => e.MaKhachSan)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KhachSan>()
-                .HasMany(e => e.PhongKhachSans1)
-                .WithRequired(e => e.KhachSan1)
-                .HasForeignKey(e => e.MaKhachSan)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KhoHang>()
@@ -310,37 +215,16 @@ namespace Model.EF
             modelBuilder.Entity<KhoHang>()
                 .HasMany(e => e.ChiTietHangHoas)
                 .WithRequired(e => e.KhoHang)
-                .HasForeignKey(e => e.MaKho)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KhoHang>()
-                .HasMany(e => e.ChiTietHangHoas1)
-                .WithRequired(e => e.KhoHang1)
-                .HasForeignKey(e => e.MaKho)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KhoHang>()
                 .HasMany(e => e.CT_NhapHang)
                 .WithRequired(e => e.KhoHang)
-                .HasForeignKey(e => e.MaKho)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KhoHang>()
-                .HasMany(e => e.CT_NhapHang1)
-                .WithRequired(e => e.KhoHang1)
-                .HasForeignKey(e => e.MaKho)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KhoHang>()
                 .HasMany(e => e.QuanLyKhoHangs)
                 .WithRequired(e => e.KhoHang)
-                .HasForeignKey(e => e.MaKho)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KhoHang>()
-                .HasMany(e => e.QuanLyKhoHangs1)
-                .WithRequired(e => e.KhoHang1)
-                .HasForeignKey(e => e.MaKho)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KhuyenMai>()
@@ -354,13 +238,6 @@ namespace Model.EF
             modelBuilder.Entity<LoaiHang>()
                 .HasMany(e => e.HangHoas)
                 .WithRequired(e => e.LoaiHang)
-                .HasForeignKey(e => e.MaLoaiHang)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<LoaiHang>()
-                .HasMany(e => e.HangHoas1)
-                .WithRequired(e => e.LoaiHang1)
-                .HasForeignKey(e => e.MaLoaiHang)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LoaiPhong>()
@@ -374,13 +251,6 @@ namespace Model.EF
             modelBuilder.Entity<LoaiPhong>()
                 .HasMany(e => e.BangGiaPhongs)
                 .WithRequired(e => e.LoaiPhong)
-                .HasForeignKey(e => e.MaLoaiPhong)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<LoaiPhong>()
-                .HasMany(e => e.BangGiaPhongs1)
-                .WithRequired(e => e.LoaiPhong1)
-                .HasForeignKey(e => e.MaLoaiPhong)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NhaCungCap>()
@@ -388,23 +258,13 @@ namespace Model.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<NhaCungCap>()
-                .HasOptional(e => e.ChiTietDonHang)
-                .WithRequired(e => e.NhaCungCap);
-
-            modelBuilder.Entity<NhaCungCap>()
-                .HasOptional(e => e.ChiTietDonHang1)
-                .WithRequired(e => e.NhaCungCap1);
+                .HasMany(e => e.ChiTietDonHangs)
+                .WithRequired(e => e.NhaCungCap)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NhaCungCap>()
                 .HasMany(e => e.CT_NhapHang)
                 .WithRequired(e => e.NhaCungCap)
-                .HasForeignKey(e => e.MaNhaCungCap)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<NhaCungCap>()
-                .HasMany(e => e.CT_NhapHang1)
-                .WithRequired(e => e.NhaCungCap1)
-                .HasForeignKey(e => e.MaNhaCungCap)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PhongKhachSan>()
@@ -418,25 +278,11 @@ namespace Model.EF
             modelBuilder.Entity<PhongKhachSan>()
                 .HasMany(e => e.ChiTietHoaDons)
                 .WithRequired(e => e.PhongKhachSan)
-                .HasForeignKey(e => e.MaPhong)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<PhongKhachSan>()
-                .HasMany(e => e.ChiTietHoaDons1)
-                .WithRequired(e => e.PhongKhachSan1)
-                .HasForeignKey(e => e.MaPhong)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PhongKhachSan>()
                 .HasMany(e => e.CT_DatPhong)
                 .WithRequired(e => e.PhongKhachSan)
-                .HasForeignKey(e => e.MaPhong)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<PhongKhachSan>()
-                .HasMany(e => e.CT_DatPhong1)
-                .WithRequired(e => e.PhongKhachSan1)
-                .HasForeignKey(e => e.MaPhong)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<QuanLyKhoHang>()
@@ -446,25 +292,11 @@ namespace Model.EF
             modelBuilder.Entity<QuanLyKhoHang>()
                 .HasMany(e => e.DS_XuatKho)
                 .WithRequired(e => e.QuanLyKhoHang)
-                .HasForeignKey(e => e.STT)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<QuanLyKhoHang>()
-                .HasMany(e => e.DS_XuatKho1)
-                .WithRequired(e => e.QuanLyKhoHang1)
-                .HasForeignKey(e => e.STT)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<QuyenHan>()
                 .HasMany(e => e.ChiTiet_QuyenHan)
                 .WithRequired(e => e.QuyenHan)
-                .HasForeignKey(e => e.MaQuyenHan)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<QuyenHan>()
-                .HasMany(e => e.ChiTiet_QuyenHan1)
-                .WithRequired(e => e.QuyenHan1)
-                .HasForeignKey(e => e.MaQuyenHan)
                 .WillCascadeOnDelete(false);
         }
     }

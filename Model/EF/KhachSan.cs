@@ -15,11 +15,8 @@ namespace Model.EF
         public KhachSan()
         {
             DonHangs = new HashSet<DonHang>();
-            DonHangs1 = new HashSet<DonHang>();
             KhoHangs = new HashSet<KhoHang>();
-            KhoHangs1 = new HashSet<KhoHang>();
             PhongKhachSans = new HashSet<PhongKhachSan>();
-            PhongKhachSans1 = new HashSet<PhongKhachSan>();
         }
 
         [Key]
@@ -48,20 +45,10 @@ namespace Model.EF
         public virtual ICollection<DonHang> DonHangs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonHang> DonHangs1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KhoHang> KhoHangs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhoHang> KhoHangs1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhongKhachSan> PhongKhachSans { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhongKhachSan> PhongKhachSans1 { get; set; }
-
         [NotMapped]
         public HttpPostedFileBase imageFileks { get; set; }
     }

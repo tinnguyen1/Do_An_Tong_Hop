@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Nhập hàng
+}
+<div style="margin: 10% 40%">
+    @using (Html.BeginForm("Import", "NhapHang", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <span style="color:red">@Html.Raw(ViewBag.Error)</span>
+        <div>
+            <label>Excel file: </label> <input type="file" name="excelfile" />
+        </div>
+
+        <br />
+        <input type="submit" value="Import" class="btn btn-danger"/>
+    }
+</div>
+<div>
+    @Html.ActionLink("Back to List", "DanhSachNhapHang")
+</div>

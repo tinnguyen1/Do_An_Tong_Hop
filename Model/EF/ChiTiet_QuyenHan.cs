@@ -21,10 +21,6 @@ namespace Model.EF
 
         public virtual DanhSachNguoiDung DanhSachNguoiDung { get; set; }
 
-        public virtual DanhSachNguoiDung DanhSachNguoiDung1 { get; set; }
-
         public virtual QuyenHan QuyenHan { get; set; }
-
-        public virtual QuyenHan QuyenHan1 { get; set; }
     }
 }
