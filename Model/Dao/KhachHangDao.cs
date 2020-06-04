@@ -1,10 +1,10 @@
-﻿using Model.EF;
-using PagedList;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model.EF;
+using PagedList;
 
 namespace Model.Dao
 {
@@ -15,16 +15,18 @@ namespace Model.Dao
         {
             db = new QuanLyChuoiKhachSanDBContext();
         }
-
         public IEnumerable<KhachHang> LayTatCaDS(string searchString, int page, int pagesize)
         {
-
             IQueryable<KhachHang> model = db.KhachHangs;
             if (!string.IsNullOrEmpty(searchString))
             {
                 model = model.Where(x => x.TenKhachHang.Contains(searchString));
+                model = model.Where(y => y.SDT.Contains(searchString));
+                //model = model.Where(x => x.GioiTinh.Contains(searchString));
+                //model = model.Where(x => x.DiaChi.Contains(searchString));
+                //model = model.Where(x => x.Email.Contains(searchString));
             }
-            return model.OrderBy(x => x.MaKhachHang).ToPagedList(page, pagesize);
+            return model.OrderBy(x => x.MaKhachHang ).ToPagedList(page, pagesize);
         }
         public KhachHang ViewDentail(int Ma)
         {
@@ -33,26 +35,9 @@ namespace Model.Dao
 
         public int ThemMoi(KhachHang ma)
         {
-            try
-            {
-                var bientam = db.KhachHangs.Find(ma.SDT);
-                if (bientam != null)
-                {
-                    db.KhachHangs.Add(ma);
-                    db.SaveChanges();
-                    return ma.MaKhachHang;
-                }
-                else
-                {
-                    return 0;
-                }
-                
-            }
-            catch(Exception ex)
-            {
-                return -1;
-            }
-            
+            db.KhachHangs.Add(ma);
+            db.SaveChanges();
+            return ma.MaKhachHang;
         }
 
         public bool ChinhSua(KhachHang entity)
@@ -61,6 +46,10 @@ namespace Model.Dao
             {
                 var nhom = db.KhachHangs.Find(entity.MaKhachHang);
                 nhom.TenKhachHang = entity.TenKhachHang;
+                nhom.SDT = entity.SDT;
+                nhom.GioiTinh = entity.GioiTinh;
+                nhom.DiaChi = entity.DiaChi;
+                nhom.Email = entity.Email;
                 db.SaveChanges();
                 return true;
             }
@@ -83,11 +72,9 @@ namespace Model.Dao
             {
                 return false;
             }
-        }
 
-        public List<KhachHang> ListAll()
-        {
-            return db.KhachHangs.OrderByDescending(x => x.MaKhachHang).ToList();
         }
     }
 }
+    
+

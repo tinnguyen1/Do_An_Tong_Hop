@@ -8,12 +8,12 @@ using Model.Dao;
 
 namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
 {
-    public class KhachHangController : Controller
+    public class NhaCungCapController : Controller
     {
-        // GET: Admin/KhachHang
+        // GET: Admin/NhaCungCap
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            var dao = new KhachHangDao();
+            var dao = new NhaCungCapDao();
             var model = dao.LayTatCaDS(searchString, page, pageSize);
             ViewBag.SearchString = searchString;
             return View(model);
@@ -24,19 +24,19 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ThemMoi(KhachHang khachhang)
+        public ActionResult ThemMoi(NhaCungCap nhacungcap)
         {
-            if (khachhang.TenKhachHang != null)
+            if (nhacungcap.TenNhaCungCap != null)
             {
-                var dao = new KhachHangDao();
-                int id = dao.ThemMoi(khachhang);
+                var dao = new NhaCungCapDao();
+                int id = dao.ThemMoi(nhacungcap);
                 if (id > 0)
                 {
-                    return RedirectToAction("Index", "KhachHang");
+                    return RedirectToAction("Index", "NhaCungCap");
                 }
                 else
                 {
-                    return RedirectToAction("ThemMoi", "KhachHang");
+                    return RedirectToAction("ThemMoi", "NhaCungCap");
                 }
             }
             return View();
@@ -45,21 +45,21 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var dao = new KhachHangDao();
-            var khachhang = dao.ViewDentail(id);
-            return View(khachhang);
+            var dao = new NhaCungCapDao();
+            var nhacungcap = dao.ViewDentail(id);
+            return View(nhacungcap);
         }
         [HttpPost]
-        public ActionResult Edit(KhachHang qh)
+        public ActionResult Edit(NhaCungCap qh)
         {
             if (ModelState.IsValid)
             {
-                var dao = new KhachHangDao();
+                var dao = new NhaCungCapDao();
                 var result = dao.ChinhSua(qh);
                 if (result)
                 {
                     //SetAlert("Cập nhật giảng viên thành công", "success");
-                    return RedirectToAction("Index", "KhachHang");
+                    return RedirectToAction("Index", "NhaCungCap");
                 }
                 else
                 {
@@ -72,11 +72,8 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            new KhachHangDao().Delete(id);
+            new NhaCungCapDao().Delete(id);
             return RedirectToAction("Index");
         }
     }
 }
-       
-        
-    

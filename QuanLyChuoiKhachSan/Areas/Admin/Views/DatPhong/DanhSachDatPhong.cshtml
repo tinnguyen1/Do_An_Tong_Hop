@@ -1,0 +1,157 @@
+﻿@model PagedList.IPagedList<Model.EF.Bang_DS_DatPhong>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "DanhSachDatPhong";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+   Xác Nhận Đặt Phòng
+}
+
+<div>
+    @Html.ActionLink("Đặt Phòng", "DatPhongMoi")
+</div>
+
+@using (Html.BeginForm("DanhSachDatPhong", "DatPhong", FormMethod.Get))
+{
+    <div class="row form-group">
+        <div class="col-lg-12">
+            <div class="col-md-4">
+                <input type="text" value="@ViewBag.SearchString" class="form-control"
+                       placeholder="Mời nhập tên cần tìm" name="searchString" />
+                <button type="submit" class="btn btn-success">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <tr>
+        @*<th>
+                Tên Khách Sạn
+            </th>*@
+
+        <th>
+            Tên
+        </th>
+
+        <th>
+            SDT
+        </th>
+
+        <th>
+            Email
+        </th>
+
+        <th>
+            Địa Chỉ
+        </th>
+
+        <th>
+            Số Người
+        </th>
+
+        @*<th>
+                Tên Phòng
+            </th>
+
+            <th>
+                Loại Phòng
+            </th>*@
+
+        @*<th>
+            Ngày Bắt Đầu
+        </th>
+
+        <th>
+            Ngày Kết Thúc
+        </th>
+
+        <th>
+            Ngày Đặt
+        </th>*@
+        <th>Tình Trạng</th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr id="row_@item.MaDatPhong">
+
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.KhachSan.TenKhachSan)
+                </td>*@
+
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.PhongKhachSan.TenPhong)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhongKhachSan.LoaiPhong.TenLoaiPhong)
+                </td>*@
+
+            <td>
+                @Html.DisplayFor(modelItem => item.SoNguoi)
+            </td>
+
+            @*<td>
+                @Html.DisplayFor(modelItem => item.NgayBD)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayKT)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayDat)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.TinhTrang)
+            </td>
+
+
+
+
+
+            <td>
+                    <div class="pull-right">
+                        @Html.ActionLink("Xác Nhận", "XacNhanDatPhong", new { id = item.MaDatPhong },
+                    new { @class = "btn btn-primary glyphicon glyphicon-pencil" }) |
+
+                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaDatPhong },
+
+                   new AjaxOptions
+                   {
+                       Confirm = "Bạn có muốn xóa thông tin này không.",
+                       OnComplete = "$('#row_" + @item.MaDatPhong + "').remove()",
+                       HttpMethod = "Delete"
+                   },
+                    new { @class = "btn btn-danger glyphicon glyphicon-trash" })
+                    </div>
+                </td>
+        </tr>
+    }
+
+</table>
+<label>
+    Trang số: @Html.PagedListPager(Model, page => Url.Action("Index",
+             new { page, @searchString = @ViewBag.SearchString }))
+</label>

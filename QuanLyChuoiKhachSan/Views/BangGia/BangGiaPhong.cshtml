@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Model.EF.BangGiaPhong>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "BangGiaPhong";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br /><br /><br /><br />
+<div class="container">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Bảng giá phòng</h3>
+        </div>
+        <div class="panel-body " >
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover" id="dataTable" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th width="100px"></th>
+                                        <th style="background-color:#387dc3;color:black" >
+                                            Loại phòng
+                                        </th>
+                                        <th style="background-color:#387dc3;color:black">
+                                            Giá
+                                        </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr  id="row_@item.MaLoaiPhong " style="max-height:133px">
+                                        <td>
+                                            <a @*href="@Url.Action("ChiTiet","KhachSan",new { id= item.MaLoaiPhong} )"*@>
+                                                <img alt="@item.LoaiPhong.TenLoaiPhong" src="@Url.Content(item.LoaiPhong.Anh)" width="100" height="80" />
+                                            </a>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LoaiPhong.TenLoaiPhong)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Gia) VNĐ
+                                        </td>
+                                    </tr>
+                                                }
+
+                            </tbody>
+                        </table>
+                       
+                    </div>
+                </div>
+                
+            </div>
+            <br /><br /><br /><br />
+        </div>
+    </div>
+</div>
+<div id="slider">
+
+</div>
+<script>
+    function clickImg(id) {
+        $.ajax({
+            url: "/Home/Slider/"+id,
+            type: "GET",
+            success: function (data) {
+                $("#slider").html(data);
+            }
+        });
+    }
+</script>
+   
+              
+
+
+
+
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.BangGiaPhong.LoaiPhong.TenLoaiPhong)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.BangGiaPhong.Gia) VNĐ
+                </td>*@
+
+
+
+
+ 

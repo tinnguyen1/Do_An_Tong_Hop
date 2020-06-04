@@ -1,0 +1,67 @@
+﻿@model  PagedList.IPagedList<Model.EF.LoaiPhong>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Trang Loại Phòng Khách Sạn";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    Danh Sách Loại Phòng
+}
+<p> 
+    @Html.ActionLink("Thêm Mới", "ThemMoi")
+</p>
+@using (Html.BeginForm("Index", "LoaiPhong", FormMethod.Get))
+{
+    <div class="row form-group">
+        <div class="col-lg-12">
+            <div class="col-md-4">
+                <input type="text" value="@ViewBag.SearchString" class="form-control" placeholder="Mời nhập tên cần tìm" name="searchString" />
+                <button type="submit" class="btn btn-success">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th></th>
+        <th>Ảnh</th>
+        <th>Tên Loại Phòng</th>
+        <th>Mô Tả</th>
+        <th></th>
+    </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr id="row_@item.MaLoaiPhong " style="max-height:133px">
+                <td></td>
+                <td>
+                    <a @*href="@Url.Action("ChiTiet","KhachSan",new { id= item.MaLoaiPhong} )"*@>
+                        <img alt="@item.TenLoaiPhong" src="@Url.Content(item.Anh)" width="100" height="80" />
+                    </a>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.TenLoaiPhong)</td>
+            
+               
+
+                
+                <td>
+                    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaLoaiPhong }) |
+
+                    @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaLoaiPhong }, new AjaxOptions
+           {
+               Confirm = "Bạn có muốn xóa loại phòng này không.",
+               OnComplete = "$('#row_" + @item.MaLoaiPhong + "').remove()",
+               HttpMethod = "Delete"
+           })
+                </td>
+            </tr>
+    }
+</table>
+
+<label>
+    Trang số: @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+</label>
+
+
+

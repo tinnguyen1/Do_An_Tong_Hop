@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    Đặt Phòng
+}
+<div class="col-8"  style="background-color:#e8dada; margin:auto",  > 
+   @*<h3 style="margin-left:130px;font-weight: bold; color:black">Đặt Phòng</h3>
+        <div class="form-group" style="color:black">
+            <label for="LP">Chọn Loại Phòng </label>
+            <input type="email" id="LP" class="form-control" placeholder="Mời nhập Loại Phòng">  
+
+            <label for="P">Mời Nhập Tên Phòng</label>
+            <input id="P" class="form-control" placeholder="Mời nhập Tên Phòng">  
+
+            <label for="N">Số Người ở</label>
+            <input type="number" id="N" class="form-control" placeholder="Mời nhập số người">  
+
+            <label for="D">Ngày nhận phòng </label>
+            <input type="date" id="D"class="form-control">
+
+            <label for="D">Ngày Trả Phòng  </label>
+            <input type="date" id="D" class="form-control" placeholder="Mời nhập Tên Phòng">  
+
+            <label for="T">Họ và Tên</label>
+            <input id="T" class="form-control" placeholder="Mời nhập Họ & Tên">  
+
+            <label for="C">CMND</label>
+            <input type="text" id="C" class="form-control" placeholder="Mời nhập số CMND">  
+
+            <label for="S">SDT       </label>
+            <input type="text" id="S" class="form-control" placeholder="Mời nhập SDT">  
+
+            <input type="submit" value="Đặt Phòng" style="margin:10px 30px 10px 100px;width:90px; background-color:#ed3e2a;"> 
+            <input type="submit" value="Trở về" style="margin:10px 10px 10px 10px;width:90px;background-color:#50ba18">     
+        </div>*@
+    <form>
+        <h3 style="text-align: center;font-weight: bold; color:black">Đặt Phòng</h3> @*margin-left:130px;*@
+        <div class="form-row">
+            
+            <div class="form-group col-md-6">
+                
+                <label for="P">Họ và Tên</label>
+                <input type="text" class="form-control" id="P" placeholder="Nhập họ và tên">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="TP">SDT</label>
+                <input type="text" class="form-control" id="TP" placeholder="Nhập SDT">
+            </div>
+        </div>
+        @*----------------------------------------------*@
+
+        <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label for="email4">Email</label>
+                    <input type="email" class="form-control" id="email4" placeholder="Nhập Email">
+                </div>
+            <div class="form-group col-md-6">
+                <label for="SN">Số Người</label>
+                <input type="number" class="form-control" id="SN" placeholder="Nhập Số Người">
+            </div>
+        
+        </div>
+        @*--------------------------------------------------------------------*@
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+
+                <label for="inputState">Loại Phòng</label>
+                <select id="inputState" class="form-control">
+                    <option selected>Mời chọn Loại Phòng</option>
+                    <option>...</option>
+                </select>
+                    @*<input type="text" class="form-control" id="P" placeholder="Mời Nhập Loại Phòng">*@
+</div>
+            
+            <div class="form-group col-md-6">
+                <label for="inputState">Tên Phòng</label>
+                <select id="inputState" class="form-control">
+                    <option selected>Mời chọn Phòng</option>
+                    <option>...</option>
+                </select>
+                @*<input type="text" class="form-control" id="TP" placeholder="Mời nhập Tên Phòng">*@
+            </div>
+
+        </div>
+        @*-------------------------------------------------------------*@
+
+        <div class="form-group">
+            <label for="inputAddress">Địa Chỉ</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Mời Nhập Địa Chỉ ">
+        </div>
+       @*-----------------------------------------*@
+       
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="D">Ngày nhận phòng </label>
+                <input type="date" id="D" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="D">Ngày Trả Phòng  </label>
+                    <input type="date" id="D" class="form-control" placeholder="Mời nhập Tên Phòng">
+                </div>
+            </div>
+        @*<div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    Check me out
+                </label>
+            </div>
+        </div>*@
+        <div class="a" style="text-align:center">   
+            <input type="submit" value="Đặt Phòng" style="margin:10px 10px 10px 10px;width:90px;background-color:#ed3e2a;"> @*margin:10px 30px 10px 100px;width:90px;*@
+            <input type="submit" value="Trở về" style="margin:10px 10px 10px 10px;width:90px;background-color:#50ba18"> 
+            @*<button type="submit" class="btn btn-primary">Sign in</button>*@
+        </div>
+    </form>
+    </div>
+    
+  
+

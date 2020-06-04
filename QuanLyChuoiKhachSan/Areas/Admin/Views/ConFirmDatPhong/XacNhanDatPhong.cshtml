@@ -1,0 +1,134 @@
+﻿@model Model.EF.CT_DatPhong
+@{
+    ViewBag.Title = "XacNhanDatPhong";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header
+    {
+    Xác Nhận đặt phòng
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaDatPhong)
+
+        <div class="col-8" style="background-color:#e8dada; margin:auto" ,>
+
+            <form>
+                <h3 style="text-align: center;font-weight: bold; color:black">Đặt Phòng</h3> @*margin-left:130px;*@
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+
+                        <label for="P">Họ và Tên</label>
+                        @Html.EditorFor(model => model.Bang_DS_DatPhong.HoTen, new { htmlAttributes = new { @class = "form-control", @required = "required" }, })
+                        @Html.ValidationMessageFor(model => model.Bang_DS_DatPhong.HoTen, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="TP">SDT</label>
+                        @Html.EditorFor(model => model.Bang_DS_DatPhong.SDT, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.Bang_DS_DatPhong.SDT, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                @*----------------------------------------------*@
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <label for="email4">Email</label>
+                        @Html.EditorFor(model => model.Bang_DS_DatPhong.Email, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.Bang_DS_DatPhong.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="SN">Số Người</label>
+                        @Html.EditorFor(model => model.Bang_DS_DatPhong.SoNguoi, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.Bang_DS_DatPhong.SoNguoi, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                @*--------------------------------------------------------------------*@
+
+
+                @*-------------------------------------------------------------*@
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.MaPhong, htmlAttributes: new { @class = "control-label col-md-2 " })*@
+
+
+                    <div class="col-md-12">
+                        <label for="">Tên Phòng</label>
+                        @Html.EditorFor(model => model.MaPhong, new { htmlAttributes = new { @class = "form-control" }, })
+                        @Html.ValidationMessageFor(model => model.MaPhong, "", new { @class = "text-danger" })
+                        @*@Html.DropDownList("MaPhong", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MaPhong, "", new { @class = "text-danger" })*@
+                    </div>
+
+                </div>
+
+                @*-----------------------------------------*@
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress">Địa Chỉ</label>
+                        @Html.EditorFor(model => model.Bang_DS_DatPhong.DiaChi, new { htmlAttributes = new { @class = "form-control" }, })
+                        @Html.ValidationMessageFor(model => model.Bang_DS_DatPhong.DiaChi, "", new { @class = "text-danger" })
+                    </div>
+
+
+
+                    <div class="form-group col-md-6">
+                        <label for="D">Ngày Trả Phòng  </label>
+                        @Html.EditorFor(model => model.Bang_DS_DatPhong.NgayKT, new { htmlAttributes = new { @class = "form-control" }, })
+                        @Html.ValidationMessageFor(model => model.Bang_DS_DatPhong.NgayKT, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+
+                <div class="a" style="text-align:center">
+                    <input type="submit" value="Xác Nhận" class="btn btn-danger btn-icon-split"> @*margin:10px 30px 10px 100px;width:90px;*@ @*style="margin:10px 10px 10px 10px;width:90px;background-color:#ed3e2a;*@
+
+
+
+                </div>
+            </form>
+        </div>
+
+        }
+
+    </div>
+}
+
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+
+
+        $(function () {
+            $("#Bang_DS_Phong.NgayKT").datepicker({
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1980:",
+                showOn: "both",
+                buttonText: "<i class ='fa fa-calendar'></i> Chọn ngày",
+            });
+        });
+        //$(document).ready(function () {
+        //    $("#NgayKT").datepicker();
+        //});
+
+
+    </script>
+}

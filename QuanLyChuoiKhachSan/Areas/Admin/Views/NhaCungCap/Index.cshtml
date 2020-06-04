@@ -1,17 +1,17 @@
-﻿@model PagedList.IPagedList<Model.EF.KhachHang>
+﻿@model  PagedList.IPagedList<Model.EF.NhaCungCap>
 @using PagedList.Mvc;
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Trang Nhà Cung Cấp";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
 @section header{
-    Danh Sách Khách Hàng
-    } 
+    Danh Sách Nhà Cung Cấp
+}
 <p>
     @Html.ActionLink("Thêm Mới", "ThemMoi")
 </p>
-@using (Html.BeginForm("Index", "KhachHang", FormMethod.Get))
+@using (Html.BeginForm("Index", "NhaCungCap", FormMethod.Get))
 {
     <div class="row form-group">
         <div class="col-lg-12">
@@ -25,29 +25,26 @@
 <table class="table">
     <tr>
         <th></th>
-        <th>Tên Khách Hàng</th>
-        <th>SDT</th>
-        <th>Giới Tính</th>
+        <th>Tên Nhà Cung Cấp</th>
         <th>Địa Chỉ</th>
-        <th>Email</th>
+        <th>SDT</th>
+        <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr id="row_@item.MaKhachHang">
+        <tr id="row_@item.MaNhaCungCap">
             <td></td>
-            <td>@Html.DisplayFor(modelItem => item.TenKhachHang)</td>
-            <td>@Html.DisplayFor(modelItem => item.SDT)</td>
-            <td>@Html.DisplayFor(modelItem => item.GioiTinh)</td>
+            <td>@Html.DisplayFor(modelItem => item.TenNhaCungCap)</td>
             <td>@Html.DisplayFor(modelItem => item.DiaChi)</td>
-            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+            <td>@Html.DisplayFor(modelItem => item.SDT)</td>
             <td>
-                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaKhachHang }) |
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaNhaCungCap }) |
 
-                @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaKhachHang }, new AjaxOptions
+                @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaNhaCungCap }, new AjaxOptions
            {
-               Confirm = "Bạn có muốn xóa Khách Hàng này không.",
-               OnComplete = "$('#row_" + @item.MaKhachHang + "').remove()",
+               Confirm = "Bạn có muốn xóa Nhà Cung Cấp này không.",
+               OnComplete = "$('#row_" + @item.MaNhaCungCap + "').remove()",
                HttpMethod = "Delete"
            })
             </td>
@@ -58,4 +55,6 @@
 <label>
     Trang số: @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
 </label>
+
+
 
