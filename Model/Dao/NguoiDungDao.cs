@@ -35,22 +35,30 @@ namespace Model.Dao
          
         public int DangNhap(string maND, string mkND)
         {
-            var result = db.DanhSachNguoiDungs.SingleOrDefault(x => x.MaNguoiDung == maND);
-            if (result == null)
+            if (maND.Length<7||mkND.Length<7)
             {
-                return 0;
+                return -2;
             }
             else
             {
-                if (result.MatKhau == mkND)
+                var result = db.DanhSachNguoiDungs.SingleOrDefault(x => x.MaNguoiDung == maND);
+                if (result == null)
                 {
-                    return 1;
+                    return 0;
                 }
                 else
                 {
-                    return -1;
+                    if (result.MatKhau == mkND)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
                 }
             }
+            
         }
 
         public DanhSachNguoiDung LayThongTinTheoMa(string ma)

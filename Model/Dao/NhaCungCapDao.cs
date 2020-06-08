@@ -70,6 +70,11 @@ namespace Model.Dao
             }
 
         }
+
+        public List<NhaCungCap> ListAll()
+        {
+            return db.NhaCungCaps.ToList();
+        }
     }
 }
     

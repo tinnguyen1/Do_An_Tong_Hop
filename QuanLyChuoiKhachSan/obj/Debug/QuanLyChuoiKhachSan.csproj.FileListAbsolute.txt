@@ -92,3 +92,4 @@ C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin
 C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin\CKSource.FileSystem.dll
 C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin\EPPlus.dll
 C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin\EPPlus.xml
+C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\obj\Debug\QuanLyChuoiKhachSan.csproj.CoreCompileInputs.cache

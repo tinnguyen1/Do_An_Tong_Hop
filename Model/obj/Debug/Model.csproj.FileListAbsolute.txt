@@ -26,3 +26,4 @@ C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\Model\bin\Debug\System.
 C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\Model\bin\Debug\System.Web.WebPages.xml
 C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\Model\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\Model\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache

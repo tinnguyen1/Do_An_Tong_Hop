@@ -78,10 +78,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\BangGiaDao.cs" />
     <Compile Include="Dao\ChiTietDon_HangDao.cs" />
     <Compile Include="Dao\ChiTiet_HangHoaDao.cs" />
+    <Compile Include="Dao\CT_DatPhongDao.cs" />
     <Compile Include="Dao\CT_NhapHangDao.cs" />
     <Compile Include="Dao\CT_QHDao.cs" />
+    <Compile Include="Dao\DanhSachPhongDao.cs" />
+    <Compile Include="Dao\DatPhongDao.cs" />
     <Compile Include="Dao\DichVuDao.cs" />
     <Compile Include="Dao\DonHangDao.cs" />
     <Compile Include="Dao\DS_XuatKhoDao.cs" />
@@ -92,6 +96,7 @@
     <Compile Include="Dao\KhoHangDao.cs" />
     <Compile Include="Dao\KhuyenMaiDao.cs" />
     <Compile Include="Dao\LoaiHangDao.cs" />
+    <Compile Include="Dao\LoaiPhongDao.cs" />
     <Compile Include="Dao\NguoiDungDao.cs" />
     <Compile Include="Dao\NhaCungCapDao.cs" />
     <Compile Include="Dao\QuanLyKhoHangDao.cs" />

@@ -61,7 +61,7 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult DoiMk(DanhSachNguoiDung nd, string mkCu)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid&&nd.MatKhau.Length>=7&& mkCu.Length>=7)
             {
                 var dao = new NguoiDungDao();
 
@@ -96,7 +96,8 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
                     }
                 }
             }
-            return View();
+            SetAlert("Số ký tự không hợp lý", "error");
+            return View("DoiMk");
         }
     }
 }

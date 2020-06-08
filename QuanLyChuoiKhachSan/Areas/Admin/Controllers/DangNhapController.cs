@@ -19,7 +19,7 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
 
         public ActionResult DangNhap(DangNhapModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid||model.MaNguoiDung.Length<6||model.MatKhau.Length<6)
             {
                 var dao = new NguoiDungDao();
                 var result = dao.DangNhap(model.MaNguoiDung, model.MatKhau);
@@ -29,8 +29,16 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
 
                     Session["TenND"] = nguoidung.TenNguoiDung;
                     Session["MaND"] = nguoidung.MaNguoiDung;
-
-                    string str = nguoidung.Anh;
+                    string str;
+                    if (nguoidung.Anh == "")
+                    {
+                        str = "~/Image/user.png";
+                    }
+                    else
+                    {
+                        str = nguoidung.Anh;
+                    }
+                    
                     string[] arrListStr = str.Split('~');
                     string chuoiten = arrListStr[1];
 
@@ -43,15 +51,21 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
 
                     Session.Add(CommonConstants.TENND_SESSTION, AdminSesstion);
 
+                    
                     return RedirectToAction("Index", "Home");
                 }
                 else if (result == 0)
                 {
                     ModelState.AddModelError("", "Tài khoản không tồn tại.");
                 }
+                else if(result == -2)
+                {
+                    ModelState.AddModelError("", "giá trị nhập không hợp lệ");
+                    ModelState.AddModelError("", "Mã đăng nhập và mật khẩu phải có ký tự lớn hơn 6");
+                }
                 else
                 {
-                    ModelState.AddModelError("", "Sai mật khẩu");
+                    ModelState.AddModelError("", "Mật khẩu sai");
                 }
             }
             return View("Index");

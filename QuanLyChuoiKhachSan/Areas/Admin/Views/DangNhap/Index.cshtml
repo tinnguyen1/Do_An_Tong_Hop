@@ -13,6 +13,7 @@
     <!-- Meta-Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <meta name="keywords" content="Clear login Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
     <script>
         addEventListener("load", function () {
@@ -27,7 +28,6 @@
     <!-- Stylesheets -->
     <link href="~/Assets/DangNhap/Admin/css/font-awesome.css" rel="stylesheet">
     <link href="~/Assets/DangNhap/Admin/css/style.css" rel='stylesheet' type='text/css' />
-
 
 </head>
 
@@ -45,7 +45,8 @@
                 <label>
                     <i class="fa fa-user" aria-hidden="true"></i> Mã Đăng Nhập
                 </label>
-                @Html.TextBoxFor(model => model.MaNguoiDung, new { @class = "form-control", @autofocus = "autofocus" });
+                @Html.TextBoxFor(model => model.MaNguoiDung, new { @class = "form-control", @onkyup="count_up(this);", @autofocus = "autofocus" });
+                <span id="thongbao"></span>
             </div>
             <div class="agile-field-txt">
                 <label>
@@ -60,7 +61,7 @@
             <!-- hiện mật khẩu -->
             <script>
                 function myFunction() {
-                    var x = document.getElementById("Matkhau");
+                    var x = document.getElementById("MatKhau");
                     if (x.type === "password") {
                         x.type = "text";
                     } else {
@@ -75,12 +76,15 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div style="margin:20px auto;">
-                <a href="#" style="color:white">Quên mật khẩu</a>
-            </div>
         }
 
-
+        <script>
+            function count_up(obj) {
+                if (obj < 6) {
+                    document.getElementById("thongbao").innerHTML = "Gia tri nhap chua du";
+                }
+            }
+        </script>
     </div>
     <!-- //form ends here -->
 </body>

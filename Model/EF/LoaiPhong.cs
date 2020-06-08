@@ -5,6 +5,7 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     [Table("LoaiPhong")]
     public partial class LoaiPhong
@@ -29,5 +30,8 @@ namespace Model.EF
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BangGiaPhong> BangGiaPhongs { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase imageFileks { get; set; }
     }
 }

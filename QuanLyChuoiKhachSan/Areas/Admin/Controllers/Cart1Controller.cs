@@ -149,7 +149,7 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
             var sessionCart = (List<CartItem>)Session[NhapHangSesstion];// danh sach cart
             var lathongtin = Session[CommonConstants.NhaCCSesstion];
             var mand = Convert.ToInt32(lathongtin);
-            var Ncc = new NhaCungCapDao().viewDental(mand);
+            var Ncc = new NhaCungCapDao().ViewDentail(mand);
             var donhang = new DonHangDao().DonHangMoiTao();
             var dao = new ChiTiet_DonHangDao();
 

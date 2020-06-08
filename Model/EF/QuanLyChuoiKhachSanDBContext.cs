@@ -12,7 +12,7 @@ namespace Model.EF
         {
         }
 
-        public virtual DbSet<Bang_DS_DatPhong> Bang_DS_DatPhong { get; set; }
+        public virtual DbSet<Bang_DS_DatPhong> Bang_DS_DatPhongs { get; set; }
         public virtual DbSet<BangGiaPhong> BangGiaPhongs { get; set; }
         public virtual DbSet<ChiTiet_QuyenHan> ChiTiet_QuyenHan { get; set; }
         public virtual DbSet<ChiTietDonHang> ChiTietDonHangs { get; set; }
