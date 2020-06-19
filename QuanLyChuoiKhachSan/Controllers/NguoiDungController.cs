@@ -37,7 +37,7 @@ namespace QuanLyChuoiKhachSan.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DangKy([Bind(Include = "MaKhachHang,MK,TenKhachHang,SDT,DiaChi,GioiTinh,Email")] KhachHang KhachHang)
+        public ActionResult DangKy([Bind(Include = "MaKhachHang,TenKhachHang,SDT,DiaChi,GioiTinh,Email")] KhachHang KhachHang)
         {
             if (ModelState.IsValid)
             {
@@ -57,18 +57,13 @@ namespace QuanLyChuoiKhachSan.Controllers
             return View(KhachHang);
         }
 
-
-
-
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DangNhap(KhachHang objUser)
         {
             if (ModelState.IsValid)
             {
-                var obj = db.KhachHangs.Where(a => a.MaKhachHang.Equals(objUser.MaKhachHang) && a.MK.Equals(objUser.MK)).FirstOrDefault();
+                var obj = db.KhachHangs.Where(a => a.MaKhachHang.Equals(objUser.MaKhachHang)).FirstOrDefault();
                 if (obj != null)
                 {
                     Session["KH"] = obj;

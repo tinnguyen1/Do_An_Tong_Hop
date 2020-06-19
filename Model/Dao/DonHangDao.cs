@@ -66,10 +66,18 @@ namespace Model.Dao
 
         public bool Delete(int id)
         {
-            var dao = ViewDentail(id);
-            db.DonHangs.Remove(dao);
-            db.SaveChanges();
-            return true;
+            try
+            {
+                var dao = ViewDentail(id);
+                db.DonHangs.Remove(dao);
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            
         }
         public List<DonHang> LayDS()
         {

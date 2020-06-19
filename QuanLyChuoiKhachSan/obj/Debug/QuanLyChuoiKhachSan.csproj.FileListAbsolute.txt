@@ -84,10 +84,6 @@ C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin
 C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin\PagedList.Mvc.dll
 C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin\PagedList.xml
 C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin\PagedList.Mvc.xml
-C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin\Autofac.dll
-C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin\AWSSDK.Core.dll
-C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin\AWSSDK.S3.dll
-C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin\CKSource.CKFinder.Connector.Config.dll
 C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin\CKSource.CKFinder.Connector.Core.dll
 C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin\CKSource.FileSystem.dll
 C:\Users\Asus\Desktop\Do An Tong Hop\QuanLyChuoiKhachSan\QuanLyChuoiKhachSan\bin\EPPlus.dll

@@ -20,9 +20,7 @@ namespace Model.Dao
             IQueryable<NhaCungCap> model = db.NhaCungCaps;
             if (!string.IsNullOrEmpty(searchString))
             {
-                model = model.Where(x => x.TenNhaCungCap.Contains(searchString));
-                model = model.Where(x => x.DiaChi.Contains(searchString));
-                model = model.Where(x => x.SDT.Contains(searchString));
+                model = model.Where(x => x.TenNhaCungCap.Contains(searchString)|| x.SDT.Contains(searchString));
             }
             return model.OrderBy(x => x.MaNhaCungCap).ToPagedList(page, pagesize);
         }

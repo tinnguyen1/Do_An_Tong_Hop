@@ -166,6 +166,7 @@
     <Compile Include="Areas\Admin\Controllers\ConFirmDatPhongController.cs" />
     <Compile Include="Areas\Admin\Controllers\DangNhapController.cs" />
     <Compile Include="Areas\Admin\Controllers\DatPhongController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DichVuController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\HangHoaController.cs" />
     <Compile Include="Areas\Admin\Controllers\HoaDonController.cs" />
@@ -194,6 +195,9 @@
     <Compile Include="Areas\QuanLy\QuanLyAreaRegistration.cs" />
     <Compile Include="Common\AdminDangNhap.cs" />
     <Compile Include="Common\CommonConstants.cs" />
+    <Compile Include="Controllers\BangGiaController.cs" />
+    <Compile Include="Controllers\HomeKHController.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,9 +208,9 @@
     <Content Include="Areas\Admin\Views\Cart1\NhaCungcap.cshtml" />
     <Content Include="Areas\Admin\Views\Cart\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DangNhap\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\DichVu\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DichVu\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\DichVu\ThemMoi.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVu1\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVu1\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVu1\ThemMoi.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\DanhSachDonHang.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\SanPham.cshtml" />
@@ -2134,6 +2138,10 @@
     <Content Include="Areas\Admin\Views\NhaCungCap\ThemMoi.cshtml" />
     <Content Include="Areas\Admin\Views\Phong\DanhSachPhong.cshtml" />
     <Content Include="Areas\Admin\Views\Phong\ThemMoi.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVu\ThemMoi.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVu\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDon\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2182,6 +2190,10 @@
     <Content Include="Scripts\tinymce\skins\lightgray\skin.min.css" />
     <Content Include="Scripts\tinymce\skins\lightgray\skin.mobile.min.css" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2189,10 +2201,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-mobile.woff" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
@@ -2202,11 +2210,14 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Scripts\tinymce\skins\lightgray\skin.min.css.map" />
     <Content Include="Scripts\tinymce\skins\lightgray\skin.mobile.min.css.map" />
+    <Content Include="Views\BangGia\BangGiaDichVu.cshtml" />
+    <Content Include="Views\BangGia\BangGiaPhong.cshtml" />
+    <Content Include="Views\HomeKH\Add.cshtml" />
+    <Content Include="Views\HomeKH\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="Areas\Admin\Views\HoaDon\" />
     <Folder Include="Areas\NhanVien\Controllers\" />
     <Folder Include="Areas\NhanVien\Models\" />
     <Folder Include="Areas\NhanVien\Views\Shared\" />
@@ -2214,7 +2225,6 @@
     <Folder Include="Areas\QuanLy\Models\" />
     <Folder Include="Areas\QuanLy\Views\Shared\" />
     <Folder Include="Content\Excelfile\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Image\" />
     <Folder Include="Models\" />
   </ItemGroup>

@@ -22,7 +22,7 @@ namespace Model.Dao
             IQueryable<HoaDon> model = db.HoaDons;
             if (!string.IsNullOrEmpty(searchString))
             {
-                model = model.Where(x => x.KhachHang.TenKhachHang.Contains(searchString));
+                model = model.Where(x => x.KhachHang.TenKhachHang.Contains(searchString)|| x.KhachHang.SDT.Contains(searchString));
             }
             return model.OrderBy(x => x.MaHoaDon).ToPagedList(page, pagesize);
         }
