@@ -60,6 +60,14 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
             return View("DanhSachPhong");
         }
 
+        public ActionResult ChonPhong(string searchString, int page = 1, int pageSize = 10)
+        {
+            var dao = new DanhSachPhongDao();
+            var model = dao.LayTatCaDS(searchString, page, pageSize);
+            ViewBag.SearchString = searchString;
+            return View(model);
+        }
+
         [HttpGet]
         public ActionResult Edit(int id)
         {

@@ -55,7 +55,7 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
                 if (id > 0)
                 {
                     SetAlert("Thêm thành công", "success");
-                    return RedirectToAction("DanhSachDatPhong", "DatPhong"); 
+                    return RedirectToAction("Bang_DS_DatPhong", "ConFirmDatPhong"); 
                 }
                 else
                 {

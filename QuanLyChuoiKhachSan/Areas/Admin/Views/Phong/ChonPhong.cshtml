@@ -1,0 +1,77 @@
+﻿@model PagedList.IPagedList<Model.EF.PhongKhachSan>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "ChonPhong";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@section header{
+    Danh sách chọn Phòng
+}
+
+
+@using (Html.BeginForm("SanPham", "DonHang", FormMethod.Get))
+{
+    <div class="row form-group">
+        <div class="col-lg-12">
+            <div class="col-md-4">
+                <input type="text" value="@ViewBag.SearchString" class="form-control" placeholder="Mời nhập tên cần tìm" name="searchString" />
+                <button type="submit" class="btn btn-success">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            Mã Phòng
+        </th>
+        <th>
+            Tên Phòng
+        </th>
+        <th>
+            Tên Khách Sạn
+        </th>
+        <th>
+            Đơn Giá
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr id="row_@item.MaPhong">
+            <td>
+                @Html.DisplayFor(modelItem => item.MaPhong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenPhong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhachSan.TenKhachSan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BangGiaPhong.Gia)
+            </td>
+
+
+            <td>
+            <td>
+                <a href="/Admin/ConFirmDatPhong/AddItem?MaPhong=@item.MaPhong">Thêm vào danh sách</a>
+            </td>
+            </td>
+        </tr>
+    }
+
+</table>
+<label>
+    Trang số: @Html.PagedListPager(Model, page => Url.Action("ChonPhong", new { page, @searchString = @ViewBag.SearchString }))
+</label>
+
+
+

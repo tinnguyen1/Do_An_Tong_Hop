@@ -87,5 +87,11 @@ namespace Model.Dao
             return db.LoaiPhongs.ToList();
         }
 
+        public List<PhongKhachSan> PhongTaoMoi()
+        {
+
+            return db.PhongKhachSans.OrderByDescending(x => x.MaPhong).Take(1).ToList();
+        }
+
     }
 }

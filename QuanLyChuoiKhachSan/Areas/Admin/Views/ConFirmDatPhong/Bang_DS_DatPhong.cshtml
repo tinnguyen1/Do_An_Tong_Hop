@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Bang_DS_DatPhong";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header {
+    Chọn Danh Sách
+}
+
+<form action="Bang_DS_DatPhong" method="post">
+    <p style="text-align:center;color:red"> chọn Tên Khách Đặt Phòng: xin vui lòng chọn kĩ </p>
+    <table class="table" style="margin-top:5%;">
+        <tr>
+            <td style="float:right"><label>Chọn Khách Hàng</label></td>
+            <td>
+                <div class="col-md-6">
+                    @Html.DropDownList("MaDatPhong", null, htmlAttributes: new { @class = "form-control" })
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="form-group" style="text-align:center">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Bước tiếp theo" class="btn btn-default alert-danger" />
+        </div>
+    </div>
+</form>
+

@@ -85,5 +85,10 @@ namespace Model.Dao
             return db.PhongKhachSans.ToList();
         }
 
+        public List<Bang_DS_DatPhong> ListAll1()
+        {
+            return db.Bang_DS_DatPhongs.ToList();
+        }
+
     }
 }

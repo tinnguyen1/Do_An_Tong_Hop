@@ -7,8 +7,11 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+ 
     public partial class Bang_DS_DatPhong
     {
+       
+
         [Key]
         [DisplayName("Mã đặt phòng")]
         public int MaDatPhong { get; set; }
@@ -48,7 +51,10 @@
         [StringLength(15)]
         [DisplayName("Giới Tính")]
         public string GioiTinh { get; set; }
-        
+
+
+       
+
         public virtual CT_DatPhong CT_DatPhong { get; set; }
     }
 }
