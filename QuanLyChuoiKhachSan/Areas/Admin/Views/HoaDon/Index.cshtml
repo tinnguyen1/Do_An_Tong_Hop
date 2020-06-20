@@ -64,19 +64,22 @@
                 <td>
                     <span style="background:#00ff21; color:#000000">@Html.DisplayFor(modelItem => item.TinhTrang)</span>
                 </td>
+                <td>
+                    @Html.ActionLink("Dịch vụ", "Edit", new { id = item.MaHoaDon }) |
+                    @Html.ActionLink("Thanh Toán", "Details", new { id = item.MaHoaDon })
+                </td>
             }
             else
             {
                 <td>
                     <span>@Html.DisplayFor(modelItem => item.TinhTrang)</span>
                 </td>
+                <td>
+                    @Html.ActionLink("Chi tiết", "Edit", new { id = item.MaHoaDon })
+                </td>
             }
 
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaHoaDon }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaHoaDon }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaHoaDon })
-            </td>
+
         </tr>
     }
 

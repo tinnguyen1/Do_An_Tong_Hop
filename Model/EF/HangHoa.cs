@@ -1,7 +1,8 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -18,15 +19,17 @@ namespace Model.EF
         }
 
         [Key]
+        [DisplayName("Mã hàng")]
         public int MaHang { get; set; }
-
+        [DisplayName("Mã loại hàng")]
         public int MaLoaiHang { get; set; }
-
+        [DisplayName("Tên hàng")]
         [StringLength(50)]
         public string TenHang { get; set; }
-
+        [DisplayName("Đơn giá")]
         public double? DonGia { get; set; }
-
+        [DisplayName("Ngày Nhập")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime? NgayNhap { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,7 +1,8 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -17,16 +18,18 @@ namespace Model.EF
         }
 
         [Key]
+        [DisplayName("Mã phòng")]
         public int MaPhong { get; set; }
-
+        [DisplayName("Mã bảng giá phòng")]
         public int MaBangGiaPhong { get; set; }
-
+        [DisplayName("Mã khách sạn")]
         public int MaKhachSan { get; set; }
-
+        [DisplayName("Tên phòng")]
         [StringLength(5)]
         public string TenPhong { get; set; }
 
         [StringLength(20)]
+        [DisplayName("Tình trạng")]
         public string TinhTrang { get; set; }
 
         public virtual BangGiaPhong BangGiaPhong { get; set; }
