@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Model.EF;
 using PagedList;
 using Model.Dao;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Model.Dao
 {
@@ -26,7 +26,7 @@ namespace Model.Dao
                 model = model.Where(x => x.HoTen.Contains(searchString));
 
             }
-            return model.OrderBy(x => x.MaDatPhong).ToPagedList(page, pagesize);
+            return model.OrderByDescending(x => x.TinhTrang=="Dang Cho").ToPagedList(page, pagesize);
         }
         public Bang_DS_DatPhong ViewDentail(int Ma)
         {
@@ -34,11 +34,9 @@ namespace Model.Dao
         }
         public int DatPhongMoi(Bang_DS_DatPhong ma)
         {
-            db.Bang_DS_DatPhongs.Add(ma);
-
-
-            ma.NgayBD = DateTime.Now;
             ma.NgayDat = DateTime.Now;
+            ma.TinhTrang = "Dang Cho";
+            db.Bang_DS_DatPhongs.Add(ma);
             db.SaveChanges();
             return ma.MaDatPhong;
         }
@@ -90,5 +88,26 @@ namespace Model.Dao
             return db.Bang_DS_DatPhongs.ToList();
         }
 
+
+        public bool ThemGiaTriVaoCT_Phong(int MaDatPhong, int maPhong)
+        {
+            try
+            {
+                var ThongtinPhong = db.PhongKhachSans.Find(maPhong);
+
+                CT_DatPhong BienTam = new CT_DatPhong();
+                BienTam.MaDatPhong = MaDatPhong;
+                BienTam.MaPhong = ThongtinPhong.MaPhong;
+                BienTam.TongGia = ThongtinPhong.BangGiaPhong.Gia;
+                db.CT_DatPhong.Add(BienTam);
+                db.SaveChanges();
+
+               return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

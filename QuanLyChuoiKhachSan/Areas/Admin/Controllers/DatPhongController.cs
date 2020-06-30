@@ -35,70 +35,35 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult DatPhongMoi()
         {
-
-            SetViewBag();
+            ViewBag.DanhSachPhong = new DanhSachPhongDao().LayDSPhong();
             return View();
         }
 
         [HttpPost]
-        public ActionResult DatPhongMoi(Bang_DS_DatPhong lh)
+        public ActionResult DatPhongMoi(Bang_DS_DatPhong lh, int maPhong)
         {
-            if (ModelState.IsValid)
+            if (lh.NgayBD>=DateTime.Now.Date&&lh.NgayBD<=lh.NgayKT)
             {
                 var dao = new DatPhongDao();
                 int id = dao.DatPhongMoi(lh);
-                lh.NgayBD = DateTime.Now;
-                lh.NgayDat = DateTime.Now;
+                var result = dao.ThemGiaTriVaoCT_Phong(id, maPhong);
 
 
-
-                if (id > 0)
+                if (result)
                 {
                     SetAlert("Thêm thành công", "success");
-                    return RedirectToAction("Bang_DS_DatPhong", "ConFirmDatPhong"); 
+                    return RedirectToAction("DanhSachDatPhong", "DatPhong"); 
                 }
                 else
                 {
+                    SetAlert("Dữ liệu không hợp lý mời xem lại", "error");
                     return RedirectToAction("DatPhongMoi", "DatPhong");
                 }
             }
-            SetViewBag();
-            return View("XacNhanDatPhong");
+            SetAlert("Dữ liệu không hợp lý mời xem lại", "error");
+            return RedirectToAction("DatPhongMoi", "DatPhong");
         }
-        //[HttpGet]
-        //public ActionResult XacNhanDatPhong(int id)
-        //{
-        //    var dao = new DatPhongDao ();
-        //    var Bang_DS_DatPhong = dao.ViewDentail(id);
-        //    SetViewBag(Bang_DS_DatPhong.MaDatPhong);
-        //    return View(Bang_DS_DatPhong);
-        //}
-
-
-        //[HttpPost]
-        //public ActionResult XacNhanDatPhong(CT_DatPhong qh)
-        //{
-        //    var dao = new CT_DatPhongDao();
-        //    var result = dao.XacNhanDatPhong(qh);
-        //    if (result)
-        //    {
-        //        SetAlert("Cập nhật thành công", "success");
-        //        return RedirectToAction("DanhSachDatPhong", "DatPhong");
-        //    }
-        //    else
-        //    {
-        //        ModelState.AddModelError("", "Cập nhật thất bại");
-        //    }
-
-        //    SetViewBag(qh.MaDatPhong);
-        //    return View("DanhSachDatPhong");
-        //}
-      
-
-
-
-
-
+        
         public void SetViewBag(int? selectedMa = null)
         {
             var dao = new DanhSachPhongDao();
@@ -115,6 +80,7 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
 
 
         }
+
         [HttpDelete]
         public ActionResult Delete(int id)
         {

@@ -87,6 +87,11 @@ namespace Model.Dao
             return db.LoaiPhongs.ToList();
         }
 
+        public List<PhongKhachSan> LayDSPhong()
+        {
+            return db.PhongKhachSans.ToList();
+        }
+
         public List<PhongKhachSan> PhongTaoMoi()
         {
 

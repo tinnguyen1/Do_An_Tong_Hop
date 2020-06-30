@@ -32,7 +32,7 @@ namespace Model.Dao
         {
 
             IQueryable<Bang_DS_DatPhong> model = db.Bang_DS_DatPhongs;
-            return model.Where(x => x.TinhTrang == "dang cho").OrderBy(x => x.MaDatPhong).ToPagedList(page, pagesize);
+            return model.Where(x => x.TinhTrang == "Dang Cho").OrderBy(x => x.MaDatPhong).ToPagedList(page, pagesize);
         }
 
         public Bang_DS_DatPhong TimThongTinTheoMaDatPhong(int maDatPhong)

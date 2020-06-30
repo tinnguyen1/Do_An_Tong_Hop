@@ -10,7 +10,7 @@
 }
 
 
-    @Html.ActionLink("Thêm Mới", "ThemMoi")
+    @Html.ActionLink("Thêm Mới", "#")
 
 @using (Html.BeginForm("DanhSachPhong", "Phong", FormMethod.Get))
 {
@@ -90,7 +90,7 @@
 
             <td>
                 <div class="pull-right">
-                    @Html.ActionLink("Chỉnh Sữa", "Edit", new { id = item.MaPhong },
+                    @Html.ActionLink("Chỉnh Sữa", "#", new { id = item.MaPhong },
                 new { @class = "btn btn-primary glyphicon glyphicon-pencil" }) |
 
                     @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaPhong },

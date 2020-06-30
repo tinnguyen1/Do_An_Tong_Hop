@@ -17,8 +17,6 @@
         public int MaPhong { get; set; }
         [DisplayName("Tổng giá")]
         public double? TongGia { get; set; }
-        [DisplayName("Số thứ tự")]
-        public int? STT { get; set; }
 
         public virtual Bang_DS_DatPhong Bang_DS_DatPhong { get; set; }
 
