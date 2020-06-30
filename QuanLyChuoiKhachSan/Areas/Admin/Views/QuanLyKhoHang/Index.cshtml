@@ -14,7 +14,7 @@
 <table class="table">
     <tr>
         <th>
-            Kho hàng
+            Chi nhánh kho hàng
         </th>
         <th>
             Địa chỉ
@@ -51,7 +51,6 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "CapNhat", new { id = item.STT }) |
-                @Html.ActionLink("Details", "Details", new { id = item.STT }) |
                 @Ajax.ActionLink("Xóa", "Delete", new { @id = item.STT }, new AjaxOptions
                {
                    Confirm = "Bạn có muốn xóa thông tin này này không.",

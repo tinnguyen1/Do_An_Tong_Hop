@@ -9,7 +9,7 @@
 }
 
 <p>
-    @Html.ActionLink("Create New", "ThemMoi")
+    @Html.ActionLink("Tạo Mới đơn hàng", "ThemMoi")
 </p>
 
 @using (Html.BeginForm("DanhSachDonHang", "DonHang", FormMethod.Get))
@@ -32,6 +32,9 @@
             Tên Đơn Hàng
         </th>
         <th>
+            Ngày Tạo
+        </th>
+        <th>
             Ngày Giao
         </th>
         <th></th>
@@ -47,10 +50,10 @@
                 @Html.DisplayFor(modelItem => item.TenDonHang)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NgayGiao)
+                @Html.DisplayFor(modelItem => item.NgayTao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NgayTao)
+                @Html.DisplayFor(modelItem => item.NgayGiao)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.MaDonHang }) |

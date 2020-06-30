@@ -21,9 +21,7 @@
         public int MaHoaDon { get; set; }
         [DisplayName("Mã khách hàng")]
         public int MaKhachHang { get; set; }
-        [DisplayName("Tên hóa đơn")]
-        [StringLength(50)]
-        public string TenHoaDon { get; set; }
+
         [DisplayName("Ngày lập")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime? NgayLap { get; set; }

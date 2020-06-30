@@ -48,9 +48,7 @@
     {
         <tr id="row_@item.MaHang">
             <td>
-                <a href="@Url.Action("Details","HangHoa",new { id= item.MaHang} )">
-                    @Html.DisplayFor(modelItem => item.MaHang)
-                </a>
+                @Html.DisplayFor(modelItem => item.MaHang)
             </td>
             <td>
                 <a href="@Url.Action("Details","HangHoa",new { id= item.MaHang} )">
@@ -69,7 +67,6 @@
 
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.MaHang }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaHang }) |
                 @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaHang }, new AjaxOptions
                {
                    Confirm = "Bạn có muốn xóa thông tin này này không.",

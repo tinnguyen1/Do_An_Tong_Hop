@@ -11,7 +11,7 @@
 }
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Đơn đặt phòng", "DonDatPhong")
 </p>
 @using (Html.BeginForm("Index", "HoaDon", FormMethod.Get))
 {
@@ -59,14 +59,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TongTien)
             </td>
-            @if (item.TinhTrang == "DangDung")
+            @if (item.TinhTrang == "Run")
             {
                 <td>
-                    <span style="background:#00ff21; color:#000000">@Html.DisplayFor(modelItem => item.TinhTrang)</span>
+                    <span style="font-weight: bold; color: #ff0000">@Html.DisplayFor(modelItem => item.TinhTrang)</span>
                 </td>
                 <td>
-                    @Html.ActionLink("Dịch vụ", "Edit", new { id = item.MaHoaDon }) |
-                    @Html.ActionLink("Thanh Toán", "Details", new { id = item.MaHoaDon })
+                    @Html.ActionLink("Dịch vụ", "DanhSachDichVu", new { @maHoaDon = item.MaHoaDon }) |
+                    @Html.ActionLink("Thanh Toán", "ThanhToan", new { @maHoaDon = item.MaHoaDon })
                 </td>
             }
             else
@@ -75,7 +75,7 @@
                     <span>@Html.DisplayFor(modelItem => item.TinhTrang)</span>
                 </td>
                 <td>
-                    @Html.ActionLink("Chi tiết", "Edit", new { id = item.MaHoaDon })
+                    @Html.ActionLink("Chi tiết", "ChiTietSauThanhToan", new { @maHoaDon = item.MaHoaDon })
                 </td>
             }
 

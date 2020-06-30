@@ -1,0 +1,98 @@
+﻿@model PagedList.IPagedList<Model.EF.Bang_DS_DatPhong>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "DonDatPhong";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Danh sách đơn đặt phòng
+}
+
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+                Họ và tên
+            </th>
+            <th>
+                Giới tính
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Số người
+            </th>
+            <th>
+                Ngày bắt đầu
+            </th>
+            <th>
+                Ngày kết thúc
+            </th>
+            <th>
+                Ngày đặt
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GioiTinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoNguoi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayBD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayKT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayDat)
+                </td>
+                <td>
+                    <a href="@Url.Action("XuLyPhieuDat", "HoaDon", new { @maPhieu=item.MaDatPhong})">Xử lý</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <label style="margin-top:5%">
+        Trang số: @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+    </label>
+}
+else
+{
+    <p style="text-align:center">Hiện tại chưa có phiếu đăng ký </p>
+}
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

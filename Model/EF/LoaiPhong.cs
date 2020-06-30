@@ -7,6 +7,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
     using System.Web;
+    using System.Web.Mvc;
 
     [Table("LoaiPhong")]
     public partial class LoaiPhong
@@ -27,6 +28,7 @@
 
         [Column(TypeName = "text")]
         [DisplayName("Mô tả phòng")]
+        [AllowHtml]
         public string MoTaPhong { get; set; }
 
         [Column(TypeName = "text")]

@@ -24,10 +24,13 @@
         [DisplayName("Mô tả")]
         public string MoTa { get; set; }
         [DisplayName("Ngày tạo")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime? NgayTao { get; set; }
         [DisplayName("Ngày bắt đầu")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime? NgayBD { get; set; }
         [DisplayName("Ngày kết thúc")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime? NgayKT { get; set; }
 
         [Required]

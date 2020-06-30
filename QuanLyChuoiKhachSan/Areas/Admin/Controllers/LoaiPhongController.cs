@@ -25,6 +25,7 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult ThemMoi(LoaiPhong loaiphong)
         {
             if (loaiphong.imageFileks == null)

@@ -2148,6 +2148,10 @@
     <Content Include="Areas\Admin\Views\ConFirmDatPhong\Bang_DS_DatPhong.cshtml" />
     <Content Include="Areas\Admin\Views\Phong\ChonPhong.cshtml" />
     <Content Include="Areas\Admin\Views\ConFirmDatPhong\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDon\DonDatPhong.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDon\DanhSachDichVu.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDon\ThanhToan.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDon\ChiTietSauThanhToan.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

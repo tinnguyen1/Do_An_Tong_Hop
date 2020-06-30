@@ -48,10 +48,10 @@
         Tổng sản phẩm: @Model.Count
     </div>
     <hr />
-    <a href="/Admin/Donhang/SanPham"><button @*id="btnContinue"*@ class="btn alert-link" style="background-color:orange">Thêm hàng</button></a>
-    <button id="btnUpdate" class="btn alert-link" style="background-color:orange">Cập nhật hàng</button>
-    <button id="btnDelete" class="btn alert-link" style="background-color:orange">Xóa danh sách</button>
-    <a href="/Admin/Cart1/DanhSachNhapHang"><button id="btnTaoDonHang" class="btn alert-danger" style="background-color:red; margin-left:5%">Hoàn thành</button></a>
+    <a href="/Admin/Donhang/SanPham"><button @*id="btnContinue"*@ class="btn btn-primary">Thêm hàng</button></a>
+    <button id="btnUpdate" class="btn btn-primary">Cập nhật hàng</button>
+    <button id="btnDelete" class="btn btn-danger">Xóa danh sách</button>
+    <a href="/Admin/Cart1/DanhSachNhapHang"><button id="btnTaoDonHang" class="btn btn-danger" style=" margin-left:5%">Hoàn thành</button></a>
 
         @*<input type="submit" value="Hoàn Thành" class="btn btn-default alert-danger" />*@
 
@@ -61,9 +61,12 @@ else
     <div style="text-align:center; padding-top: 30px">
         <span class="alert alert-danger">Chưa có hàng hóa nào cần xuất kho</span>
         <div>
-            <button style="margin-top:10%"><a href="/Admin/DonHang/SanPham">Chọn hàng cần xuất</a> </button>
+            <button style="margin-top:10%" class="btn btn-primary"><a href="/Admin/DonHang/DanhSachDonHang">Quay lại</a> </button>
         </div>
     </div>
 
 
 }
+<style>
+    .btn-primary a{color:white}
+</style>

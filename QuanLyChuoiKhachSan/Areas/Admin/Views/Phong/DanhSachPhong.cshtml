@@ -51,8 +51,16 @@
         <tr id="row_@item.MaPhong">
             <td>
                 @*<a href="@Url.Action("ChiTiet","PhongKhachSan",new { id= item.MaPhong} )">*@
-                    @*@Html.DisplayFor(modelItem => item.LoaiPhong.Anh)*@
-                    <img alt="@item.TenPhong" src="@Url.Content(item.BangGiaPhong.LoaiPhong.Anh)" width="100" height="80" />
+                @*@Html.DisplayFor(modelItem => item.LoaiPhong.Anh)*@
+                @if (item.BangGiaPhong.LoaiPhong.Anh != null)
+                {
+                <img alt="@item.TenPhong" src="@Url.Content(item.BangGiaPhong.LoaiPhong.Anh)" width="100" height="80" />
+                }
+                else
+                {
+            <img alt="@item.TenPhong" src="~/Image/hotel.png" width="100" height="80" />
+                }
+                
                 @*</a>*@
             </td>
 
@@ -95,7 +103,7 @@
                },
                 new { @class = "btn btn-danger glyphicon glyphicon-trash" })
                     </div>
-</td>
+            </td>
         </tr>
     }
 

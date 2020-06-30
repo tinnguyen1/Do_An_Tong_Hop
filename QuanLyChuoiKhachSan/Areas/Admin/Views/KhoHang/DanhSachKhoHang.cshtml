@@ -42,7 +42,7 @@
     {
         <tr id="row_@item.MaKho">
             <td>
-                <a href="@Url.Action("#","KhoHang",new { id= item.MaKho} )">
+                <a href="@Url.Action("Edit","KhoHang",new { id= item.MaKho} )">
                     @Html.DisplayFor(modelItem => item.KhachSan.TenKhachSan)
                 </a>
             </td>
