@@ -1,0 +1,62 @@
+﻿@model Model.EF.PhongKhachSan
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    <b style="color:#212738"> Chỉnh Sữa</b>
+}
+@using (Html.BeginForm("Edit", "Phong", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaPhong)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenPhong, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenPhong, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenPhong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Giá Phòng", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MaBangGiaPhong", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BangGiaPhong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.Label("Tên Khách Sạn", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MaKhachSan", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.KhachSan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.MoTaPhong, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <textarea name="MoTaPhong">@Html.Raw(Model.MoTaPhong)</textarea>
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Cập Nhật" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Trở về trang trước", "DanhSachPhong")
+</div>
+

@@ -13,22 +13,25 @@ namespace QuanLyChuoiKhachSan.Areas.Admin.Controllers
     public class PhongController : BaseController
     {
         // GET: Admin/Phong
-        public ActionResult DanhSachPhong(string searchString, int page =1, int pageSize = 10)
+        public ActionResult DanhSachPhong(string searchString, int page = 1, int pageSize = 10)
         {
-            var dao = new DanhSachPhongDao ();
+            var dao = new DanhSachPhongDao();
             var model = dao.LayTatCaDS(searchString, page, pageSize);
             ViewBag.SearchString = searchString;
             return View(model);
         }
         public void SetViewBag(int? selectedMa = null)
         {
-            var dao = new DanhSachPhongDao();
-            ViewBag.MaKhachSan = new SelectList(dao.ListAll(), "MaKhachSan", "TenKhachSan", selectedMa);
-            ViewBag.MaBangGiaPhong = new SelectList(dao.ListAllGia(), "MaBangGiaPhong", "Gia", selectedMa);
-            ViewBag.MaBangGiaPhong = new SelectList(dao.ListAllGia(), "MaBangGiaPhong", "Tang", selectedMa);
-            ViewBag.MaBangGiaPhong = new SelectList(dao.ListAllLoai(), "MaBangGiaPhong","MaLoaiPhong" , selectedMa);
-            //ViewBag.MaLoaiPhong = new SelectList(dao.ListAllLoai(), "MaLoaiPhong", "Anh", selectedMa);
 
+            var dao = new DanhSachPhongDao();
+            var da1 = new KhachSanDao();
+            ViewBag.MaKhachSan = new SelectList(dao.ListAll(), "MaKhachSan", "TenKhachSan", selectedMa);
+
+            ViewBag.MaBangGiaPhong = new SelectList(dao.ListAllGia(), "MaBangGiaPhong", "Tang", selectedMa);
+            ViewBag.MaBangGiaPhong = new SelectList(dao.ListAllLoai(), "MaBangGiaPhong", "MaLoaiPhong", selectedMa);
+            ViewBag.MaLoaiPhong = new SelectList(dao.ListAllLoai(), "MaLoaiPhong", "Anh", selectedMa);
+
+            ViewBag.MaBangGiaPhong = new SelectList(dao.ListAllGia(), "MaBangGiaPhong", "Gia", selectedMa);
 
 
         }

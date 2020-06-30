@@ -187,6 +187,7 @@
     <Compile Include="Areas\Admin\Controllers\QuanLyKhoHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuyenHanController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiKhoanController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ThongKeController.cs" />
     <Compile Include="Areas\Admin\Controllers\XuatHangController.cs" />
     <Compile Include="Areas\Admin\DichVuController.cs" />
     <Compile Include="Areas\Admin\Models\CartItem.cs" />
@@ -199,6 +200,8 @@
     <Compile Include="Common\AdminDangNhap.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Controllers\BangGiaController.cs" />
+    <Compile Include="Controllers\BaseKHController.cs" />
+    <Compile Include="Controllers\DatPhongKHController.cs" />
     <Compile Include="Controllers\HomeKHController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2152,6 +2155,8 @@
     <Content Include="Areas\Admin\Views\HoaDon\DanhSachDichVu.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDon\ThanhToan.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDon\ChiTietSauThanhToan.cshtml" />
+    <Content Include="Areas\Admin\Views\ThongKe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2224,6 +2229,7 @@
     <Content Include="Views\BangGia\BangGiaPhong.cshtml" />
     <Content Include="Views\HomeKH\Add.cshtml" />
     <Content Include="Views\HomeKH\Index.cshtml" />
+    <Content Include="Views\DatPhongKH\DatPhongMoi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2237,6 +2243,7 @@
     <Folder Include="Content\Excelfile\" />
     <Folder Include="Image\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

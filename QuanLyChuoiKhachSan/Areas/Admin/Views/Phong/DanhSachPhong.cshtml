@@ -10,7 +10,7 @@
 }
 
 
-    @Html.ActionLink("Thêm Mới", "#")
+    @Html.ActionLink("Thêm Mới", "ThemMoi")
 
 @using (Html.BeginForm("DanhSachPhong", "Phong", FormMethod.Get))
 {
@@ -90,7 +90,7 @@
 
             <td>
                 <div class="pull-right">
-                    @Html.ActionLink("Chỉnh Sữa", "#", new { id = item.MaPhong },
+                    @Html.ActionLink("Chỉnh Sữa", "Edit", new { id = item.MaPhong },
                 new { @class = "btn btn-primary glyphicon glyphicon-pencil" }) |
 
                     @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaPhong },
@@ -109,7 +109,7 @@
 
 </table>
 <label>
-    Trang số: @Html.PagedListPager(Model, page => Url.Action("Index",
+    Trang số: @Html.PagedListPager(Model, page => Url.Action("DanhSachPhong",
              new { page, @searchString = @ViewBag.SearchString }))
 </label>
 
